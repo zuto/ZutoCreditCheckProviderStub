@@ -15,7 +15,7 @@ namespace Application.TestApi.Modules
         {
             _readonlyRepository = readonlyRepository;
             _messageHandlerFactory = messageHandlerFactory;
-           // this.RequiresHttps(true, null);
+            this.RequiresHttps(true, null);
             Get["/{environment?dev}/{provider}"] = parameters =>
             {
                 try
