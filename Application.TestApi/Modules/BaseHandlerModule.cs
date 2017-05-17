@@ -39,7 +39,7 @@ namespace Application.TestApi.Modules
 
                 string contents = Respond(Request.Body, configureModel, parameters.provider);
 
-                return Response.AsText(contents);
+                return Response.AsXml(contents);
             };
         }
         internal string Respond(Stream requestBody, ConfigureModel persistable, string provider)
