@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Text;
 using Application.TestApi.Errors;
 using Nancy;
 
@@ -14,7 +15,7 @@ namespace Application.TestApi.Modules
         {
             _readonlyRepository = readonlyRepository;
             _messageHandlerFactory = messageHandlerFactory;
-            this.RequiresHttps(true, null);
+           // this.RequiresHttps(true, null);
             Get["/{environment?dev}/{provider}"] = parameters =>
             {
                 try
@@ -38,8 +39,12 @@ namespace Application.TestApi.Modules
                 var configureModel = _readonlyRepository.Get(parameters.environment, parameters.provider) as ConfigureModel;
 
                 string contents = Respond(Request.Body, configureModel, parameters.provider);
-
-                return Response.AsXml(contents);
+                var byteArray = Encoding.UTF8.GetBytes(contents);
+                using (var stream = new MemoryStream(byteArray))
+                {
+                    return Response.FromStream(stream, "text/xml; charset=utf-8");
+                }
+               
             };
         }
         internal string Respond(Stream requestBody, ConfigureModel persistable, string provider)
