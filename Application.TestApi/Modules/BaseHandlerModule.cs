@@ -40,11 +40,9 @@ namespace Application.TestApi.Modules
 
                 string contents = Respond(Request.Body, configureModel, parameters.provider);
                 var byteArray = Encoding.UTF8.GetBytes(contents);
-                using (var stream = new MemoryStream(byteArray))
-                {
-                    return Response.FromStream(stream, "text/xml; charset=utf-8");
-                }
-               
+                var stream = new MemoryStream(byteArray);
+                return Response.FromStream(stream, "text/xml; charset=utf-8");
+
             };
         }
         internal string Respond(Stream requestBody, ConfigureModel persistable, string provider)
