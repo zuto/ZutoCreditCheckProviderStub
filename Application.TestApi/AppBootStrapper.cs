@@ -1,4 +1,5 @@
 ﻿
+using Application.TestApi.Errors;
 using Nancy;
 using Nancy.Bootstrapper;
 using Nancy.TinyIoc;
@@ -9,8 +10,14 @@ namespace Application.TestApi
     {
         protected override void RequestStartup(TinyIoCContainer requestContainer, IPipelines pipelines, NancyContext context)
         {
+            pipelines.OnError.AddItemToEndOfPipeline((ctx, ex) => ErrorResponse.FromException(ex));
             base.RequestStartup(requestContainer, pipelines, context);
         }
-         
+
+        protected override void ConfigureApplicationContainer(TinyIoCContainer container)
+        {
+            base.ConfigureApplicationContainer(container);
+        }
+
     }
 }

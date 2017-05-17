@@ -1,0 +1,30 @@
+﻿<html>
+    <head>
+        <title>
+            Zuto Credit Check Provider Stub - @!Model
+        </title>
+    </head>
+    <body>
+        <h1>
+            Welcome to the Zuto Credit Check Provider Stub - @!Model.ConfigureModel.Provider - @!Model.ConfigureModel.ForEnvironment
+        </h1>
+        <p>
+            Please input the values you want to be used when the stub is accessed:
+        </p>
+        <form action="/@!Model/@!Model/update" method="post">
+		<input type="hidden" name="Id" value="@!Model.ConfigureModel.Id" />
+        <div class="inputSet">
+            <label for="TimeOutMilliSeconds">Time Out MilliSeconds</label> <input type="number" min="0" name="TimeOutMilliSeconds" value="@!Model.ConfigureModel.TimeOutMilliSeconds" />
+        </div>       
+        <div class="inputSet">
+            <label for="ThrowFaultException">ThrowFaultException</label> 
+			<input type="checkbox" name="ThrowFaultException" value="true" @If.ConfigureModel.ThrowFaultException checked @EndIf />
+        </div>
+		 <div class="inputSet">
+            <label for="ThrowStackTrace">ThrowStackTrace</label> 
+			<input type="checkbox" name="ThrowStackTrace" value="true" @If.ConfigureModel.ThrowStackTrace checked @EndIf />
+        </div>
+            <button type="submit">save</button>
+        </form>		
+    </body>
+</html>
