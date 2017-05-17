@@ -5183,7 +5183,7 @@ namespace Application.TestApi
 
         public string HandleResponse(string request, ConfigureModel configuration)
         {
-            return GoodResponse;
+            return GoodResponse.Replace("™","\"");
         }
 
         public bool Supports(Messages messageType)
