@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Application.TestApi.Errors;
 using Nancy;
 
@@ -7,10 +8,13 @@ namespace Application.TestApi.Modules
     public class BaseHandlerModule : NancyModule
     {
         private readonly IRetriever _readonlyRepository;
+        private readonly IMessageHandlerFactory _messageHandlerFactory;
 
-        public BaseHandlerModule(IRetriever readonlyRepository)
+        public BaseHandlerModule(IRetriever readonlyRepository, IMessageHandlerFactory messageHandlerFactory)
         {
             _readonlyRepository = readonlyRepository;
+            _messageHandlerFactory = messageHandlerFactory;
+            this.RequiresHttps(true, null);
             Get["/{environment?dev}/{provider}"] = parameters =>
             {
                 try
@@ -29,26 +33,22 @@ namespace Application.TestApi.Modules
                     return ErrorResponse.FromException(ex).WithStatusCode(500);
                 }
             };
+            Post["/{environment?dev}/{provider}"] = parameters =>
+            {
+                var configureModel = _readonlyRepository.Get(parameters.environment, parameters.provider) as ConfigureModel;
+
+                string contents = Respond(Request.Body, configureModel, parameters.provider);
+
+                return Response.AsText(contents);
+            };
         }
-    }
-
-    public class ConfigData
-    {
-        public ConfigData(ConfigureModel configureModel)
+        internal string Respond(Stream requestBody, ConfigureModel persistable, string provider)
         {
-            
-        }
-    }
-
-    public class ConfigureModel : IPersistable
-    {
-        public string Id { get; set; }
-        public string Provider { get; set; }
-        public string ForEnvironment { get; set; }
-
-        public IPersistable Save(IPersistStuff persister)
-        {
-            return null;
+            var requestXml = new StreamReader(requestBody).ReadToEnd();
+            //Hack to Log Xml as Exception.
+            new LogEvent(requestXml).Raise();
+            Console.WriteLine(requestXml);
+            return _messageHandlerFactory.GetHandler(requestXml, provider).HandleResponse(requestXml, persistable);
         }
     }
 }
