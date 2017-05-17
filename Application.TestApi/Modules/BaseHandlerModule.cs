@@ -3,18 +3,21 @@ using System.IO;
 using System.Text;
 using Application.TestApi.Errors;
 using Nancy;
+using Nancy.ModelBinding;
 
 namespace Application.TestApi.Modules
 {
     public class BaseHandlerModule : NancyModule
     {
+        private readonly IPersistStuff _persister;
         private readonly IRetriever _readonlyRepository;
         private readonly IMessageHandlerFactory _messageHandlerFactory;
 
-        public BaseHandlerModule(IRetriever readonlyRepository, IMessageHandlerFactory messageHandlerFactory)
+        public BaseHandlerModule(IRetriever readonlyRepository, IMessageHandlerFactory messageHandlerFactory, IPersistStuff persister)
         {
             _readonlyRepository = readonlyRepository;
             _messageHandlerFactory = messageHandlerFactory;
+            _persister = persister;
             this.RequiresHttps(true, null);
             Get["/{environment?dev}/{provider}"] = parameters =>
             {
@@ -44,6 +47,19 @@ namespace Application.TestApi.Modules
                 return Response.FromStream(stream, "text/xml; charset=utf-8");
 
             };
+            Post["/{environment?dev}/{provider}/Update"] = parameters =>
+            {
+                UpdateConfiguration(parameters.provider, parameters.environment);
+                return Response.AsRedirect(string.Format("/{0}/{1}", (string)parameters.environment, (string)parameters.provider));
+            };
+        }
+
+        internal void UpdateConfiguration(string provider, string environment)
+        {
+            var model = this.Bind<ConfigureModel>();
+            model.Provider = provider;
+            model.ForEnvironment = environment;
+            model.Save(_persister);
         }
         internal string Respond(Stream requestBody, ConfigureModel persistable, string provider)
         {

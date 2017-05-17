@@ -11,7 +11,7 @@
         <p>
             Please input the values you want to be used when the stub is accessed:
         </p>
-        <form action="/@!Model/@!Model/update" method="post">
+        <form action="/@!Model.ConfigureModel.ForEnvironment/@!Model.ConfigureModel.Provider/update" method="post">
 		<input type="hidden" name="Id" value="@!Model.ConfigureModel.Id" />
         <div class="inputSet">
             <label for="TimeOutMilliSeconds">Time Out MilliSeconds</label> <input type="number" min="0" name="TimeOutMilliSeconds" value="@!Model.ConfigureModel.TimeOutMilliSeconds" />

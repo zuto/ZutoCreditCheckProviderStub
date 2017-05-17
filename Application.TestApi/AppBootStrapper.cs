@@ -5179,10 +5179,39 @@ namespace Application.TestApi
 ";
         #endregion
 
+        #region FaultException
+
+        private string FaultXML = @"<soapenv:Envelope xmlns:soapenv=""http://schemas.xmlsoap.org/soap/envelope/"">
+   <soapenv:Body>
+      <soapenv:Fault>
+         <faultcode>soapenv:Server</faultcode>
+         <faultstring xml:lang=""en"">User authentication error</faultstring>
+         <detail>
+            <ns2:creditQuotationSearchFault xmlns:ns2=""http://ewsconsumer.services.uk.equifax.com/schema/v2"">
+               <code>EWSC0005</code>
+               <message>Bad credentials</message>
+            </ns2:creditQuotationSearchFault>
+         </detail>
+      </soapenv:Fault>
+   </soapenv:Body>
+</soapenv:Envelope>";
+
+
+        #endregion
+
 
 
         public string HandleResponse(string request, ConfigureModel configuration)
         {
+            configuration.Sleep();
+            if (configuration.ThrowFaultException)
+            {
+                return FaultXML;
+            }
+            if (configuration.ThrowStackTrace)
+            {
+                throw new Exception("You are FooBared");
+            }
             return GoodResponse.Replace("™","\"");
         }
 

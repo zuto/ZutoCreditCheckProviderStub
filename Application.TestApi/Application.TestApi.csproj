@@ -46,6 +46,10 @@
     <Reference Include="Nancy.Hosting.Aspnet">
       <HintPath>packages\Nancy.Hosting.Aspnet.0.23.2\lib\net40\Nancy.Hosting.Aspnet.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.9.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
@@ -59,7 +63,6 @@
     <Compile Include="AppBootStrapper.cs" />
     <Compile Include="Errors\ErrorResponse.cs" />
     <Compile Include="Home\Module.cs" />
-    <Compile Include="IndexModule.cs" />
     <Compile Include="Modules\BaseHandlerModule.cs" />
     <Compile Include="Modules\ConfigData.cs" />
     <Compile Include="Modules\ConfigureModel.cs" />
@@ -81,6 +84,7 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="Views\View.sshtml" />
+    <EmbeddedResource Include="Config\dev-equifax.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
