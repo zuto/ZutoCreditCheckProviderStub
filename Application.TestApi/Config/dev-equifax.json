@@ -2,6 +2,6 @@
   "ForEnvironment": "dev",
   "Provider": "equifax",
   "TimeOutMilliSeconds": "5000",
-  "ThrowFaultException": false,
+  "ThrowFaultException": true,
   "ThrowStackTrace": false
 }
