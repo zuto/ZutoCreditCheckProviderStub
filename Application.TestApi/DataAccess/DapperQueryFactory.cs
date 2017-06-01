@@ -1,6 +1,5 @@
 ﻿using System.Data;
 using Application.TestApi.Entities;
-using Application.TestApi.Modules;
 using Dapper;
 
 namespace Application.TestApi.DataAccess
@@ -16,7 +15,7 @@ namespace Application.TestApi.DataAccess
                          cfg.TimeoutMs as TimeOutMilliSeconds,
                          cfg.StackTrace as ThrowStackTrace,
                          cfg.Exception as ThrowFaultException,
-                         cfg.MultipleMatch as MultipleAddressMatch,
+                         cfg.MultipleMatch as ReturnMultipleAddresses,
                          cfg.NoTrace 
                         as NoTrace from [dbo].[Provider] p
                         inner join [dbo].[Environment] e on p.EnvID = e.ID
