@@ -1,14 +1,15 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Application.TestApi.Modules;
 
-namespace Application.TestApi.Modules
+namespace Application.TestApi.Handlers
 {
     public class MessageHandlerFactory : IMessageHandlerFactory
     {
         private readonly IEnumerable<IHandleDefaultMessages> _defaultMessageHandlers;
 
-        public MessageHandlerFactory(IEnumerable<IHandleDefaultMessages> defaultMessageHandlers, IEnumerable<IHandleCustomMessages> customMessageHandlers)
+        public MessageHandlerFactory(IEnumerable<IHandleDefaultMessages> defaultMessageHandlers)
         {
             _defaultMessageHandlers = defaultMessageHandlers ?? new List<IHandleDefaultMessages>();
         }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Web.Management;
 
-namespace Application.TestApi.Modules
+namespace Application.TestApi.Errors
 {
     public class LogEvent : WebRequestErrorEvent
     {

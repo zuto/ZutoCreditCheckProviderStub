@@ -1,4 +1,6 @@
-﻿namespace Application.TestApi.Modules
+﻿using Application.TestApi.Entities;
+
+namespace Application.TestApi.DataAccess
 {
     public class ConfigureModelRepository : IRetriever
     {

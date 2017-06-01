@@ -13,6 +13,7 @@
         </p>
         <form action="/@!Model.ConfigureModel.ForEnvironment/@!Model.ConfigureModel.Provider/update" method="post">
 		<input type="hidden" name="Id" value="@!Model.ConfigureModel.Id" />
+		<input type="hidden" name="ForEnvironment" value="@!Model.ConfigureModel.ForEnvironment" />
         <div class="inputSet">
             <label for="TimeOutMilliSeconds">Time Out MilliSeconds</label> <input type="number" min="0" name="TimeOutMilliSeconds" value="@!Model.ConfigureModel.TimeOutMilliSeconds" />
         </div>       
@@ -20,9 +21,17 @@
             <label for="ThrowFaultException">ThrowFaultException</label> 
 			<input type="checkbox" name="ThrowFaultException" value="true" @If.ConfigureModel.ThrowFaultException checked @EndIf />
         </div>
-		 <div class="inputSet">
+		<div class="inputSet">
             <label for="ThrowStackTrace">ThrowStackTrace</label> 
 			<input type="checkbox" name="ThrowStackTrace" value="true" @If.ConfigureModel.ThrowStackTrace checked @EndIf />
+        </div>
+		<div class="inputSet">
+            <label for="NoTrace">NoTraceResponse</label> 
+			<input type="checkbox" name="NoTrace" value="true" @If.ConfigureModel.NoTrace checked @EndIf />
+        </div>
+		<div class="inputSet">
+            <label for="ReturnMultipleAddresses">ReturnMultipleAddresses</label> 
+			<input type="checkbox" name="ReturnMultipleAddresses" value="true" @If.ConfigureModel.ReturnMultipleAddresses checked @EndIf />
         </div>
             <button type="submit">save</button>
         </form>		

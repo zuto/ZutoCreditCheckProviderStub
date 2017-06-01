@@ -1,8 +1,9 @@
 ﻿using System.Threading;
+using Application.TestApi.DataAccess;
 
-namespace Application.TestApi.Modules
+namespace Application.TestApi.Entities
 {
-    public class ConfigureModel : IPersistable, ISleep
+    public class ConfigureModel : DapperEntity, IPersistable, ISleep
     {
         public string Id { get; set; }
         public string Provider { get; set; }
@@ -10,6 +11,8 @@ namespace Application.TestApi.Modules
         public bool ThrowFaultException { get; set; }
         public bool ThrowStackTrace { get; set; }
         public int TimeOutMilliSeconds { get; set; }
+        public bool ReturnMultipleAddresses { get; set; }
+        public bool NoTrace { get; set; }
 
         public IPersistable Save(IPersistStuff persister)
         {

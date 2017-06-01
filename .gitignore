@@ -60,3 +60,4 @@ _ReSharper*/
 
 #Test files
 *.testsettings
+Application.TestApi/packages/

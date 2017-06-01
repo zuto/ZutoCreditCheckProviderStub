@@ -1,4 +1,6 @@
-﻿namespace Application.TestApi.Modules
+﻿using Application.TestApi.Entities;
+
+namespace Application.TestApi.Handlers
 {
     public interface IHandleMessages
     {

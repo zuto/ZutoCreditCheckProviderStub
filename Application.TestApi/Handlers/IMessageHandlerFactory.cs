@@ -1,4 +1,4 @@
-namespace Application.TestApi.Modules
+namespace Application.TestApi.Handlers
 {
     public interface IMessageHandlerFactory
     {

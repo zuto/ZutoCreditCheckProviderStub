@@ -39,7 +39,23 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Dapper.1.50.2\lib\net40\Dapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions.Desktop, Version=1.0.168.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Nancy">
       <HintPath>packages\Nancy.0.23.2\lib\net40\Nancy.dll</HintPath>
     </Reference>
@@ -50,41 +66,74 @@
       <HintPath>packages\Newtonsoft.Json.9.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="StackExchange.Redis, Version=1.1.608.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\StackExchange.Redis.1.1.608\lib\net40\StackExchange.Redis.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.IO, Version=2.6.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.1.1.10\lib\net40\System.IO.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Runtime, Version=2.6.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.1.1.10\lib\net40\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Threading.Tasks, Version=2.6.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.1.1.10\lib\net40\System.Threading.Tasks.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppBootStrapper.cs" />
+    <Compile Include="DataAccess\DapperQueryRunner.cs" />
+    <Compile Include="DataAccess\TransactionFactory.cs" />
+    <Compile Include="DataAccess\IQueryRunner.cs" />
+    <Compile Include="DataAccess\ITransactionFactory.cs" />
+    <Compile Include="Handlers\DefaultEquifaxMessageHandler.cs" />
     <Compile Include="Errors\ErrorResponse.cs" />
     <Compile Include="Home\Module.cs" />
     <Compile Include="Modules\BaseHandlerModule.cs" />
-    <Compile Include="Modules\ConfigData.cs" />
-    <Compile Include="Modules\ConfigureModel.cs" />
-    <Compile Include="Modules\ConfigureModelRepository.cs" />
-    <Compile Include="Modules\IHandleCustomMessages.cs" />
+    <Compile Include="DataAccess\CommandDefinition.cs" />
+    <Compile Include="Entities\ConfigureModel.cs" />
+    <Compile Include="DataAccess\ConfigureModelRepository.cs" />
+    <Compile Include="DataAccess\DapperQueryFactory.cs" />
+    <Compile Include="DataAccess\SqlDapperHandler.cs" />
+    <Compile Include="DataAccess\IDapperQueryFactory.cs" />
+    <Compile Include="DataAccess\DapperEntity.cs" />
+    <Compile Include="DataAccess\DatabaseConnectionFactory.cs" />
+    <Compile Include="DataAccess\ICommandDefinition.cs" />
+    <Compile Include="DataAccess\IDapperHandler.cs" />
+    <Compile Include="DataAccess\IDapperQueryRunner.cs" />
+    <Compile Include="DataAccess\IDatabaseConnectionFactory.cs" />
     <Compile Include="Modules\IHandleDefaultMessages.cs" />
-    <Compile Include="Modules\IHandleMessages.cs" />
-    <Compile Include="Modules\IMessageHandlerFactory.cs" />
-    <Compile Include="Modules\IPersistable.cs" />
-    <Compile Include="Modules\IPersistStuff.cs" />
-    <Compile Include="Modules\IRetriever.cs" />
-    <Compile Include="Modules\LogEvent.cs" />
-    <Compile Include="Modules\MessageHandlerFactory.cs" />
+    <Compile Include="Handlers\IHandleMessages.cs" />
+    <Compile Include="Handlers\IMessageHandlerFactory.cs" />
+    <Compile Include="DataAccess\IPersistable.cs" />
+    <Compile Include="DataAccess\IPersistStuff.cs" />
+    <Compile Include="DataAccess\IRetriever.cs" />
+    <Compile Include="Errors\LogEvent.cs" />
+    <Compile Include="Handlers\MessageHandlerFactory.cs" />
     <Compile Include="Modules\Messages.cs" />
-    <Compile Include="Modules\PersistSomeWhere.cs" />
+    <Compile Include="DataAccess\PersistStuff.cs" />
+    <Compile Include="DataAccess\QueryRunner.cs" />
     <Compile Include="Modules\ViewModel.cs" />
+    <Compile Include="NancyExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="Views\View.sshtml" />
-    <EmbeddedResource Include="Config\dev-equifax.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -118,6 +167,11 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Import Project="packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

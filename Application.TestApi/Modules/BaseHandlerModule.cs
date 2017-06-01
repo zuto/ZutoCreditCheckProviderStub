@@ -1,7 +1,10 @@
 ﻿using System;
 using System.IO;
 using System.Text;
+using Application.TestApi.DataAccess;
+using Application.TestApi.Entities;
 using Application.TestApi.Errors;
+using Application.TestApi.Handlers;
 using Nancy;
 using Nancy.ModelBinding;
 
@@ -18,7 +21,7 @@ namespace Application.TestApi.Modules
             _readonlyRepository = readonlyRepository;
             _messageHandlerFactory = messageHandlerFactory;
             _persister = persister;
-            this.RequiresHttps(true, null);
+           // this.RequiresHttps(true, null);
             Get["/{environment?dev}/{provider}"] = parameters =>
             {
                 try
@@ -59,7 +62,7 @@ namespace Application.TestApi.Modules
             var model = this.Bind<ConfigureModel>();
             model.Provider = provider;
             model.ForEnvironment = environment;
-            model.Save(_persister);
+           model.Save(_persister);
         }
         internal string Respond(Stream requestBody, ConfigureModel persistable, string provider)
         {
