@@ -8,7 +8,7 @@ namespace Application.TestApi.Handlers
     {
         #region GoodResponse
 
-        const string GoodResponse = @"<soapenv:Envelope xmlns:soapenv=™http://schemas.xmlsoap.org/soap/envelope/™>
+        readonly string GoodResponse = @"<soapenv:Envelope xmlns:soapenv=™http://schemas.xmlsoap.org/soap/envelope/™>
    <soapenv:Header>
       <sec:PasswordExpiryInformation xmlns:sec=™http://ewsconsumer.services.uk.equifax.com/schema/v2/security™>
          <PasswordSecurity xmlns=™http://services.uk.equifax.com/schema/v1/security™>
@@ -5151,7 +5151,7 @@ namespace Application.TestApi.Handlers
       </ns2:creditQuotationSearchResponse>
    </soapenv:Body>
 </soapenv:Envelope>
-";
+".Replace("™", "\"");
         #endregion
 
         #region FaultException
@@ -5176,20 +5176,289 @@ namespace Application.TestApi.Handlers
 
         #region MultipleAddresses
 
-        private string multipleAddressXML = @"<soapenv:Envelope xmlns:soapenv=""http://schemas.xmlsoap.org/soap/envelope/"">
+        private string multipleAddressXML = @"<soapenv:Envelope xmlns:soapenv=™http://schemas.xmlsoap.org/soap/envelope/™>
+   <soapenv:Header>
+      <sec:PasswordExpiryInformation xmlns:sec=™http://ewsconsumer.services.uk.equifax.com/schema/v2/security™>
+         <PasswordSecurity xmlns=™http://services.uk.equifax.com/schema/v1/security™>
+            <mustChangePassword>false</mustChangePassword>
+            <passwordValidityPeriod>30</passwordValidityPeriod>
+            <latestDateOfPasswordChange>2017-06-16T16:12:21.000+01:00</latestDateOfPasswordChange>
+            <lastPasswordChange>2017-05-17T16:12:21.000+01:00</lastPasswordChange>
+         </PasswordSecurity>
+      </sec:PasswordExpiryInformation>
+   </soapenv:Header>
    <soapenv:Body>
-      <soapenv:Fault>
-         <faultcode>soapenv:Server</faultcode>
-         <faultstring xml:lang=""en"">User authentication error</faultstring>
-         <detail>
-            <ns2:creditQuotationSearchFault xmlns:ns2=""http://ewsconsumer.services.uk.equifax.com/schema/v2"">
-               <code>EWSC0005</code>
-               <message>Bad credentials</message>
-            </ns2:creditQuotationSearchFault>
-         </detail>
-      </soapenv:Fault>
+      <ns2:creditQuotationSearchResponse xmlns:ns2=™http://ewsconsumer.services.uk.equifax.com/schema/v2/creditsearch/creditquotationsearchresponse™>
+         <clientRef>D0511E92-5D47-49AA-824C-AEBD355EABAE</clientRef>
+         <soleSearch>
+            <primary>
+               <suppliedAddressData>
+                  <addressMatchStatus>multipleMatch</addressMatchStatus>
+                  <index>1</index>
+                  <potentialMatchedAddress sourcedFrom=™MUL™>
+                     <address>
+                        <county>WILTS</county>
+                        <name>FLAT E 44</name>
+                        <postcode>BA133BN</postcode>
+                        <postTown>WESTBURY</postTown>
+                        <street1>HIGH ST</street1>
+                        <addressID>58150004375</addressID>
+                     </address>
+                  </potentialMatchedAddress>
+                  <potentialMatchedAddress sourcedFrom=™MUL™>
+                     <address>
+                        <county>WILTS</county>
+                        <name>FLAT 1 109</name>
+                        <postcode>BA133BN</postcode>
+                        <postTown>WESTBURY</postTown>
+                        <street1>HIGH ST</street1>
+                        <addressID>58150004176</addressID>
+                     </address>
+                  </potentialMatchedAddress>
+                  <potentialMatchedAddress sourcedFrom=™MUL™>
+                     <address>
+                        <county>WILTS</county>
+                        <name>FLAT 2 316</name>
+                        <postcode>BA133BN</postcode>
+                        <postTown>WESTBURY</postTown>
+                        <street1>HIGH ST</street1>
+                        <addressID>58150004001</addressID>
+                     </address>
+                  </potentialMatchedAddress>
+                  <potentialMatchedAddress sourcedFrom=™MUL™>
+                     <address>
+                        <county>WILTS</county>
+                        <name>FLAT 2 44</name>
+                        <postcode>BA133BN</postcode>
+                        <postTown>WESTBURY</postTown>
+                        <street1>HIGH ST</street1>
+                        <addressID>58150004060</addressID>
+                     </address>
+                  </potentialMatchedAddress>
+                  <potentialMatchedAddress sourcedFrom=™MUL™>
+                     <address>
+                        <county>WILTS</county>
+                        <name>FLAT 3 26</name>
+                        <postcode>BA133BN</postcode>
+                        <postTown>WESTBURY</postTown>
+                        <street1>HIGH ST</street1>
+                        <addressID>58150004160</addressID>
+                     </address>
+                  </potentialMatchedAddress>
+                  <potentialMatchedAddress sourcedFrom=™MUL™>
+                     <address>
+                        <county>WILTS</county>
+                        <name>FLAT 3 49</name>
+                        <postcode>BA133BN</postcode>
+                        <postTown>WESTBURY</postTown>
+                        <street1>HIGH ST</street1>
+                        <addressID>58150004039</addressID>
+                     </address>
+                  </potentialMatchedAddress>
+                  <potentialMatchedAddress sourcedFrom=™MUL™>
+                     <address>
+                        <county>WILTS</county>
+                        <name>FLAT 3A 181</name>
+                        <postcode>BA133BN</postcode>
+                        <postTown>WESTBURY</postTown>
+                        <street1>HIGH ST</street1>
+                        <addressID>58150004430</addressID>
+                     </address>
+                  </potentialMatchedAddress>
+                  <potentialMatchedAddress sourcedFrom=™MUL™>
+                     <address>
+                        <county>WILTS</county>
+                        <name>FLAT 5 11</name>
+                        <postcode>BA133BN</postcode>
+                        <postTown>WESTBURY</postTown>
+                        <street1>HIGH ST</street1>
+                        <addressID>58150004477</addressID>
+                     </address>
+                  </potentialMatchedAddress>
+                  <potentialMatchedAddress sourcedFrom=™MUL™>
+                     <address>
+                        <county>WILTS</county>
+                        <name>FLAT 5 17</name>
+                        <postcode>BA133BN</postcode>
+                        <postTown>WESTBURY</postTown>
+                        <street1>HIGH ST</street1>
+                        <addressID>58150004120</addressID>
+                     </address>
+                  </potentialMatchedAddress>
+                  <potentialMatchedAddress sourcedFrom=™MUL™>
+                     <address>
+                        <county>WILTS</county>
+                        <name>FLAT 5 26</name>
+                        <postcode>BA133BN</postcode>
+                        <postTown>WESTBURY</postTown>
+                        <street1>HIGH ST</street1>
+                        <addressID>58150004304</addressID>
+                     </address>
+                  </potentialMatchedAddress>
+                  <potentialMatchedAddress sourcedFrom=™MUL™>
+                     <address>
+                        <county>WILTS</county>
+                        <name>FLAT 6 50</name>
+                        <postcode>BA133BN</postcode>
+                        <postTown>WESTBURY</postTown>
+                        <street1>HIGH ST</street1>
+                        <addressID>58150004227</addressID>
+                     </address>
+                  </potentialMatchedAddress>
+                  <potentialMatchedAddress sourcedFrom=™MUL™>
+                     <address>
+                        <county>WILTS</county>
+                        <name>FLAT 7 35</name>
+                        <postcode>BA133BN</postcode>
+                        <postTown>WESTBURY</postTown>
+                        <street1>HIGH ST</street1>
+                        <addressID>58150004226</addressID>
+                     </address>
+                  </potentialMatchedAddress>
+                  <potentialMatchedAddress sourcedFrom=™MUL™>
+                     <address>
+                        <county>WILTS</county>
+                        <name>FLAT A 10</name>
+                        <postcode>BA133BW</postcode>
+                        <postTown>WESTBURY</postTown>
+                        <street1>HIGH ST</street1>
+                        <addressID>58150022638</addressID>
+                     </address>
+                  </potentialMatchedAddress>
+                  <potentialMatchedAddress sourcedFrom=™MUL™>
+                     <address>
+                        <county>WILTS</county>
+                        <name>FLAT B 10</name>
+                        <postcode>BA133BW</postcode>
+                        <postTown>WESTBURY</postTown>
+                        <street1>HIGH ST</street1>
+                        <addressID>58150022639</addressID>
+                     </address>
+                  </potentialMatchedAddress>
+                  <potentialMatchedAddress sourcedFrom=™MUL™>
+                     <address>
+                        <county>WILTS</county>
+                        <name>FLAT C 10</name>
+                        <postcode>BA133BW</postcode>
+                        <postTown>WESTBURY</postTown>
+                        <street1>HIGH ST</street1>
+                        <addressID>58150022640</addressID>
+                     </address>
+                  </potentialMatchedAddress>
+                  <potentialMatchedAddress sourcedFrom=™MUL™>
+                     <address>
+                        <county>WILTS</county>
+                        <name>FLAT 1-9</name>
+                        <postcode>BA133BW</postcode>
+                        <postTown>WESTBURY</postTown>
+                        <street1>HIGH ST</street1>
+                        <addressID>58150022641</addressID>
+                     </address>
+                  </potentialMatchedAddress>
+                  <potentialMatchedAddress sourcedFrom=™MUL™>
+                     <address>
+                        <county>WILTS</county>
+                        <name>FLAT 2-9</name>
+                        <postcode>BA133BW</postcode>
+                        <postTown>WESTBURY</postTown>
+                        <street1>HIGH ST</street1>
+                        <addressID>58150022642</addressID>
+                     </address>
+                  </potentialMatchedAddress>
+                  <potentialMatchedAddress sourcedFrom=™MUL™>
+                     <address>
+                        <county>WILTS</county>
+                        <district>CHAPMANSLADE</district>
+                        <name>FLAT E 44</name>
+                        <postcode>BA134AJ</postcode>
+                        <postTown>WESTBURY</postTown>
+                        <street1>HIGH ST</street1>
+                        <addressID>58150005375</addressID>
+                     </address>
+                  </potentialMatchedAddress>
+                  <potentialMatchedAddress sourcedFrom=™MUL™>
+                     <address>
+                        <county>WILTS</county>
+                        <district>CHAPMANSLADE</district>
+                        <name>FLAT 1 109</name>
+                        <postcode>BA134AJ</postcode>
+                        <postTown>WESTBURY</postTown>
+                        <street1>HIGH ST</street1>
+                        <addressID>58150005176</addressID>
+                     </address>
+                  </potentialMatchedAddress>
+                  <potentialMatchedAddress sourcedFrom=™MUL™>
+                     <address>
+                        <county>WILTS</county>
+                        <district>CHAPMANSLADE</district>
+                        <name>FLAT 2 316</name>
+                        <postcode>BA134AJ</postcode>
+                        <postTown>WESTBURY</postTown>
+                        <street1>HIGH ST</street1>
+                        <addressID>58150005001</addressID>
+                     </address>
+                  </potentialMatchedAddress>
+                  <potentialMatchedAddress sourcedFrom=™MUL™>
+                     <address>
+                        <county>WILTS</county>
+                        <district>CHAPMANSLADE</district>
+                        <name>FLAT 2 44</name>
+                        <postcode>BA134AJ</postcode>
+                        <postTown>WESTBURY</postTown>
+                        <street1>HIGH ST</street1>
+                        <addressID>58150005060</addressID>
+                     </address>
+                  </potentialMatchedAddress>
+                  <potentialMatchedAddress sourcedFrom=™MUL™>
+                     <address>
+                        <county>WILTS</county>
+                        <district>CHAPMANSLADE</district>
+                        <name>FLAT 3 26</name>
+                        <postcode>BA134AJ</postcode>
+                        <postTown>WESTBURY</postTown>
+                        <street1>HIGH ST</street1>
+                        <addressID>58150005160</addressID>
+                     </address>
+                  </potentialMatchedAddress>
+                  <potentialMatchedAddress sourcedFrom=™MUL™>
+                     <address>
+                        <county>WILTS</county>
+                        <district>CHAPMANSLADE</district>
+                        <name>FLAT 3 49</name>
+                        <postcode>BA134AJ</postcode>
+                        <postTown>WESTBURY</postTown>
+                        <street1>HIGH ST</street1>
+                        <addressID>58150005039</addressID>
+                     </address>
+                  </potentialMatchedAddress>
+                  <potentialMatchedAddress sourcedFrom=™MUL™>
+                     <address>
+                        <county>WILTS</county>
+                        <district>CHAPMANSLADE</district>
+                        <name>FLAT 3A 181</name>
+                        <postcode>BA134AJ</postcode>
+                        <postTown>WESTBURY</postTown>
+                        <street1>HIGH ST</street1>
+                        <addressID>58150005430</addressID>
+                     </address>
+                  </potentialMatchedAddress>
+                  <potentialMatchedAddress sourcedFrom=™MUL™>
+                     <address>
+                        <county>WILTS</county>
+                        <district>CHAPMANSLADE</district>
+                        <name>FLAT 5 11</name>
+                        <postcode>BA134AJ</postcode>
+                        <postTown>WESTBURY</postTown>
+                        <street1>HIGH ST</street1>
+                        <addressID>58150005477</addressID>
+                     </address>
+                  </potentialMatchedAddress>
+               </suppliedAddressData>
+            </primary>
+         </soleSearch>
+      </ns2:creditQuotationSearchResponse>
    </soapenv:Body>
-</soapenv:Envelope>";
+</soapenv:Envelope>".Replace("™", "\"");
 
 
         #endregion
@@ -5211,7 +5480,7 @@ namespace Application.TestApi.Handlers
             {
                 return multipleAddressXML;
             }
-            return GoodResponse.Replace("™","\"");
+            return GoodResponse;
         }
 
         public bool Supports(Messages messageType)

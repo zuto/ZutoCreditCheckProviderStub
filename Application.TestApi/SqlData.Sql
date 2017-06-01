@@ -80,40 +80,40 @@ GO
 
 --Create Stored Procedure
 
-/****** Object:  StoredProcedure [dbo].[UpsertConfiguration]    Script Date: 5/31/2017 6:20:25 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-Create PROCEDURE [dbo].[UpsertConfiguration]
-	@ProviderId int,
+Create PROCEDURE [dbo].[UpsertConfig]
+	@Environment nvarchar(10),
+	@Provider nvarchar(10),
 	@TimeOut int,
 	@Exception bit,
 	@StackTrace bit,
 	@NoTrace bit,
-	@MultipleMatch bit,
-	@ID int output
-AS
+	@MultipleMatch bit
+AS 
 SET NOCOUNT ON;
-Select TOP 1 @ID = [ID] from [dbo].Configuration where ProviderId = @providerId
-if (@Id IS NOT NULL) BEGIN
+declare @EnvId int;
+Select TOP 1 @EnvId = [ID] from [dbo].Environment where Name = @Environment
+if (@EnvId IS NULL) BEGIN
+	insert into [dbo].[Environment] values (@Environment)
+	SET @EnvId=SCOPE_IDENTITY()
+END
+declare @ProviderId int;
+Select TOP 1 @ProviderId = [ID] from [dbo].Provider where Name = @Provider and EnvID = @EnvId
+if (@ProviderId IS NULL) BEGIN
+	insert into [dbo].Provider values (@envId,@Provider)
+	SET @ProviderId=SCOPE_IDENTITY()
+END
+
+Declare @ConfigId int;
+Select TOP 1 @ConfigId = [ID] from [dbo].Configuration where ProviderId = @ProviderId
+if (@ConfigId IS NOT NULL) BEGIN
 	update [dbo].Configuration set TimeOutMs = @TimeOut, Exception = @Exception, StackTrace = @StackTrace, NoTrace = @NoTrace, MultipleMatch = @MultipleMatch
 END
 else BEGIN
-insert into [dbo].Configuration values (@providerId,@TimeOut,@Exception,@StackTrace,@NoTrace,@MultipleMatch)
-	SET @ID=SCOPE_IDENTITY()
+insert into [dbo].Configuration values (@ProviderId,@TimeOut,@Exception,@StackTrace,@NoTrace,@MultipleMatch)
 END
-return @ID
-
-Select  * from  [dbo].[Configuration] with (NOLOCK) 
-select * from Provider
-select * from Environment
-
-GO
- DECLARE @kill varchar(max) = '';
- SELECT @kill = @kill + 'BEGIN TRY KILL ' + CONVERT(varchar(5), spid) + ';' + ' END TRY BEGIN CATCH END CATCH ;' FROM master..sysprocesses 
-EXEC (@kill)
-
-
 
