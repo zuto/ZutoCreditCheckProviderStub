@@ -1,4 +1,5 @@
 using System;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -8,7 +9,7 @@ namespace Application.TestApi.DataAccess
     {
         public IDbConnection CreateConnection()
         {
-            var connectionString = Environment.GetEnvironmentVariable("SQLSERVER_CONNECTION_STRING",EnvironmentVariableTarget.Process);
+            var connectionString = ConfigurationManager.AppSettings.Get("SQLSERVER_CONNECTION_STRING");
             var connection =
                 new SqlConnection(connectionString);
             connection.Open();
