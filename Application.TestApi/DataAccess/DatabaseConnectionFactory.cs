@@ -8,7 +8,7 @@ namespace Application.TestApi.DataAccess
     {
         public IDbConnection CreateConnection()
         {
-            var connectionString = Environment.GetEnvironmentVariable("SQLSERVER_CONNECTION_STRING");
+            var connectionString = Environment.GetEnvironmentVariable("SQLSERVER_CONNECTION_STRING",EnvironmentVariableTarget.Process);
             var connection =
                 new SqlConnection(connectionString);
             connection.Open();
