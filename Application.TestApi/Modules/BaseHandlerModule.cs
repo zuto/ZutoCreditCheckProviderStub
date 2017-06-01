@@ -13,20 +13,18 @@ namespace Application.TestApi.Modules
     public class BaseHandlerModule : NancyModule
     {
         private readonly IPersistStuff _persister;
-        private readonly IRetriever _readonlyRepository;
         private readonly IMessageHandlerFactory _messageHandlerFactory;
 
         public BaseHandlerModule(IRetriever readonlyRepository, IMessageHandlerFactory messageHandlerFactory, IPersistStuff persister)
         {
-            _readonlyRepository = readonlyRepository;
             _messageHandlerFactory = messageHandlerFactory;
             _persister = persister;
-           // this.RequiresHttps(true, null);
+            this.RequiresHttps(true, null);
             Get["/{environment?dev}/{provider}"] = parameters =>
             {
                 try
                 {
-                    var model = _readonlyRepository.Get((string)parameters.environment, (string)parameters.provider);
+                    var model = readonlyRepository.Get((string)parameters.environment, (string)parameters.provider);
 
                     var viewModel = new ViewModel
                     {
@@ -42,7 +40,7 @@ namespace Application.TestApi.Modules
             };
             Post["/{environment?dev}/{provider}"] = parameters =>
             {
-                var configureModel = _readonlyRepository.Get(parameters.environment, parameters.provider) as ConfigureModel;
+                var configureModel = readonlyRepository.Get(parameters.environment, parameters.provider) as ConfigureModel;
 
                 string contents = Respond(Request.Body, configureModel, parameters.provider);
                 var byteArray = Encoding.UTF8.GetBytes(contents);
@@ -53,7 +51,7 @@ namespace Application.TestApi.Modules
             Post["/{environment?dev}/{provider}/Update"] = parameters =>
             {
                 UpdateConfiguration(parameters.provider, parameters.environment);
-                return Response.AsRedirect(string.Format("/{0}/{1}", (string)parameters.environment, (string)parameters.provider));
+                return Response.AsRedirect($"/{(string) parameters.environment}/{(string) parameters.provider}");
             };
         }
 
