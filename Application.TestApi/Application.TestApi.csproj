@@ -92,6 +92,13 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Mocks\Equifax\FaultException.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Mocks\Equifax\NoTrace.xml" />
+    <Content Include="Mocks\Equifax\SingleMatch.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -100,9 +107,12 @@
     <Compile Include="DataAccess\TransactionFactory.cs" />
     <Compile Include="DataAccess\IQueryRunner.cs" />
     <Compile Include="DataAccess\ITransactionFactory.cs" />
+    <Compile Include="DataAccess\ISleep.cs" />
     <Compile Include="Handlers\DefaultEquifaxMessageHandler.cs" />
     <Compile Include="Errors\ErrorResponse.cs" />
     <Compile Include="Home\Module.cs" />
+    <Compile Include="Mocks\EquifaxMocks.cs" />
+    <Content Include="Mocks\Equifax\NoMatch.xml" />
     <Compile Include="Modules\BaseHandlerModule.cs" />
     <Compile Include="DataAccess\CommandDefinition.cs" />
     <Compile Include="Entities\ConfigureModel.cs" />
@@ -141,7 +151,14 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Mocks\Equifax\MultipleMatch.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
