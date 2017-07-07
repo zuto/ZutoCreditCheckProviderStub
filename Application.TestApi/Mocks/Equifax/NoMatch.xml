@@ -1,0 +1,21 @@
+﻿<creditQuotationSearchResponse1 xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <PasswordExpiryInformation>
+    <PasswordSecurity xmlns="http://services.uk.equifax.com/schema/v1/security">
+      <mustChangePassword>false</mustChangePassword>
+      <passwordValidityPeriod>30</passwordValidityPeriod>
+      <latestDateOfPasswordChange>2017-08-01T01:51:57+00:00</latestDateOfPasswordChange>
+      <lastPasswordChange>2017-07-02T01:51:57+00:00</lastPasswordChange>
+    </PasswordSecurity>
+  </PasswordExpiryInformation>
+  <creditQuotationSearchResponse>
+    <clientRef>BC65E8F1-44D1-452B-B1CE-CD4C32BF64A6</clientRef>
+    <soleSearch>
+      <primary>
+        <suppliedAddressData>
+          <addressMatchStatus>noMatch</addressMatchStatus>
+          <index>1</index>
+        </suppliedAddressData>
+      </primary>
+    </soleSearch>
+  </creditQuotationSearchResponse>
+</creditQuotationSearchResponse1>

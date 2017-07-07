@@ -9,35 +9,39 @@ namespace Application.TestApi.DataAccess
         public ICommandDefinition<ConfigureModel> GetConfigureModel(IDbTransaction dbTransaction, string provider,
             string env)
         {
-            return new CommandDefinition<ConfigureModel>(@"select TOP 1  p.ID as Id,
+            return new CommandDefinition<ConfigureModel>(@"SELECT TOP 1  p.ID as Id,
                          p.Name as Provider,
                          e.Name as ForEnvironment, 
                          cfg.TimeoutMs as TimeOutMilliSeconds,
                          cfg.StackTrace as ThrowStackTrace,
                          cfg.Exception as ThrowFaultException,
-                         cfg.MultipleMatch as ReturnMultipleAddresses,
-                         cfg.NoTrace 
-                        as NoTrace from [dbo].[Provider] p
-                        inner join [dbo].[Environment] e on p.EnvID = e.ID
-                        inner join [dbo].[Configuration] cfg on cfg.ProviderId = p.ID
+                         cfg.NoMatch as NoMatch,
+                         cfg.SingleMatch as SingleMatch,
+                         cfg.MultipleMatch as MultipleMatch,
+                         cfg.NoTrace
+                        FROM [dbo].[Provider] p
+                        INNER JOIN [dbo].[Environment] e ON p.EnvID = e.ID
+                        INNER JOIN [dbo].[Configuration] cfg ON cfg.ProviderId = p.ID
                          WHERE e.Name = @environment AND p.Name = @provider",
-                         new { environment = env, provider },
-                         dbTransaction);
+                new {environment = env, provider},
+                dbTransaction);
         }
 
         public ICommandDefinition<int> UpsertConfiguration(IDbTransaction dbTransaction, ConfigureModel provider)
         {
             var p = new DynamicParameters();
+
             p.Add("Environment", provider.ForEnvironment);
             p.Add("Provider", provider.Provider);
             p.Add("TimeOut", provider.TimeOutMilliSeconds);
             p.Add("Exception", provider.ThrowFaultException);
             p.Add("StackTrace", provider.ThrowStackTrace);
             p.Add("NoTrace", provider.NoTrace);
-            p.Add("MultipleMatch", provider.ReturnMultipleAddresses);
-            return new CommandDefinition<int>("UpsertConfig",
-                         p,
-                         dbTransaction, CommandType.StoredProcedure);
+            p.Add("NoMatch", provider.NoMatch);
+            p.Add("SingleMatch", provider.SingleMatch);
+            p.Add("MultipleMatch", provider.MultipleMatch);
+
+            return new CommandDefinition<int>("UpsertConfig", p, dbTransaction, CommandType.StoredProcedure);
         }
     }
 }

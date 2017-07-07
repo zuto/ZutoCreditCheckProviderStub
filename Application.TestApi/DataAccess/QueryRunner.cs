@@ -1,7 +1,6 @@
 ﻿using System.Data;
 using System.Linq;
 using Application.TestApi.Entities;
-using Application.TestApi.Modules;
 
 namespace Application.TestApi.DataAccess
 {
@@ -27,7 +26,6 @@ namespace Application.TestApi.DataAccess
         {
             var upsertConfiguration = _dapperQueryFactory.UpsertConfiguration(transaction, configureModel);
             _queryRunner.Query(upsertConfiguration);
-
         }
     }
 }

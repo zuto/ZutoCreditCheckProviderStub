@@ -1,0 +1,14 @@
+﻿<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+    <soapenv:Body>
+        <soapenv:Fault>
+            <faultcode>soapenv:Server</faultcode>
+            <faultstring xml:lang="en">User authentication error</faultstring>
+            <detail>
+                <ns2:creditQuotationSearchFault xmlns:ns2="http://ewsconsumer.services.uk.equifax.com/schema/v2">
+                    <code>EWSC0005</code>
+                    <message>Bad credentials</message>
+                </ns2:creditQuotationSearchFault>
+            </detail>
+        </soapenv:Fault>
+    </soapenv:Body>
+</soapenv:Envelope>

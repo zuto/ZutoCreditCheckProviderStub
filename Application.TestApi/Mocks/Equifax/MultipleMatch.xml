@@ -1,0 +1,51 @@
+﻿<creditQuotationSearchResponse1 xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <PasswordExpiryInformation>
+    <PasswordSecurity xmlns="http://services.uk.equifax.com/schema/v1/security">
+      <mustChangePassword>false</mustChangePassword>
+      <passwordValidityPeriod>30</passwordValidityPeriod>
+      <latestDateOfPasswordChange>2017-07-07T15:58:22+00:00</latestDateOfPasswordChange>
+      <lastPasswordChange>2017-06-07T15:58:22+00:00</lastPasswordChange>
+    </PasswordSecurity>
+  </PasswordExpiryInformation>
+  <creditQuotationSearchResponse>
+    <clientRef>C8B9490E-7E8C-48C9-B5A2-82ED214CB642</clientRef>
+    <soleSearch>
+      <primary>
+        <suppliedAddressData>
+          <addressMatchStatus>multipleMatch</addressMatchStatus>
+          <index>1</index>
+          <potentialMatchedAddress sourcedFrom="MUL">
+            <address>
+              <county>HERTS</county>
+              <name>4 LEA GREEN</name>
+              <postcode>AL9 5NX</postcode>
+              <postTown>HATFIELD</postTown>
+              <street1>MILL GREEN</street1>
+              <addressID>45090011271</addressID>
+            </address>
+          </potentialMatchedAddress>
+          <potentialMatchedAddress sourcedFrom="MUL">
+            <address>
+              <county>HERTS</county>
+              <name>4 WATERSIDE COTTAGES</name>
+              <postcode>AL9 5NY</postcode>
+              <postTown>HATFIELD</postTown>
+              <street1>MILL GREEN</street1>
+              <addressID>45090011277</addressID>
+            </address>
+          </potentialMatchedAddress>
+          <potentialMatchedAddress sourcedFrom="MUL">
+            <address>
+              <county>HERTS</county>
+              <name>4 MILL COTTAGES</name>
+              <postcode>AL9 5PB</postcode>
+              <postTown>HATFIELD</postTown>
+              <street1>MILL GREEN</street1>
+              <addressID>45090011289</addressID>
+            </address>
+          </potentialMatchedAddress>
+        </suppliedAddressData>
+      </primary>
+    </soleSearch>
+  </creditQuotationSearchResponse>
+</creditQuotationSearchResponse1>

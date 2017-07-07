@@ -12,27 +12,41 @@
             Please input the values you want to be used when the stub is accessed:
         </p>
         <form action="/@!Model.ConfigureModel.ForEnvironment/@!Model.ConfigureModel.Provider/update" method="post">
-		<input type="hidden" name="Id" value="@!Model.ConfigureModel.Id" />
-		<input type="hidden" name="ForEnvironment" value="@!Model.ConfigureModel.ForEnvironment" />
-        <div class="inputSet">
-            <label for="TimeOutMilliSeconds">Time Out MilliSeconds</label> <input type="number" min="0" name="TimeOutMilliSeconds" value="@!Model.ConfigureModel.TimeOutMilliSeconds" />
-        </div>       
-        <div class="inputSet">
-            <label for="ThrowFaultException">ThrowFaultException</label> 
-			<input type="checkbox" name="ThrowFaultException" value="true" @If.ConfigureModel.ThrowFaultException checked @EndIf />
-        </div>
-		<div class="inputSet">
-            <label for="ThrowStackTrace">ThrowStackTrace</label> 
-			<input type="checkbox" name="ThrowStackTrace" value="true" @If.ConfigureModel.ThrowStackTrace checked @EndIf />
-        </div>
-		<div class="inputSet">
-            <label for="NoTrace">NoTraceResponse</label> 
-			<input type="checkbox" name="NoTrace" value="true" @If.ConfigureModel.NoTrace checked @EndIf />
-        </div>
-		<div class="inputSet">
-            <label for="ReturnMultipleAddresses">ReturnMultipleAddresses</label> 
-			<input type="checkbox" name="ReturnMultipleAddresses" value="true" @If.ConfigureModel.ReturnMultipleAddresses checked @EndIf />
-        </div>
+		    <input type="hidden" name="Id" value="@!Model.ConfigureModel.Id" />
+		    <input type="hidden" name="ForEnvironment" value="@!Model.ConfigureModel.ForEnvironment" />
+            <div class="inputSet">
+                <label for="TimeOutMilliSeconds">Time Out MilliSeconds</label> <input type="number" min="0" name="TimeOutMilliSeconds" value="@!Model.ConfigureModel.TimeOutMilliSeconds" />
+            </div>    
+            <!-- Fault Exception Response -->
+            <div class="inputSet">
+                <label for="ThrowFaultException">ThrowFaultException</label> 
+			    <input type="checkbox" name="ThrowFaultException" value="true" @If.ConfigureModel.ThrowFaultException checked @EndIf />
+            </div>
+            <!-- StackTrace Response -->
+		    <div class="inputSet">
+                <label for="ThrowStackTrace">ThrowStackTrace</label> 
+			    <input type="checkbox" name="ThrowStackTrace" value="true" @If.ConfigureModel.ThrowStackTrace checked @EndIf />
+            </div>
+            <!-- No Trace Response -->
+            <div class="inputSet">
+                <label for="NoTrace">NoTrace</label>
+                <input type="checkbox" name="NoTrace" value="true" @If.ConfigureModel.NoTrace checked @EndIf />
+            </div>
+            <!-- No Match Response -->
+		    <div class="inputSet">
+                <label for="NoMatch">NoMatch</label> 
+			    <input type="checkbox" name="NoMatch" value="true" @If.ConfigureModel.NoMatch checked @EndIf />
+            </div>
+            <!-- Single Match Response -->
+		    <div class="inputSet">
+                <label for="SingleMatch">SingleMatch</label> 
+			    <input type="checkbox" name="SingleMatch" value="true" @If.ConfigureModel.SingleMatch checked @EndIf />
+            </div>
+            <!-- Multiple Match Response -->
+		    <div class="inputSet">
+                <label for="MultipleMatch">MultipleMatch</label> 
+			    <input type="checkbox" name="MultipleMatch" value="true" @If.ConfigureModel.MultipleMatch checked @EndIf />
+            </div>                
             <button type="submit">save</button>
         </form>		
     </body>

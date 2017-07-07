@@ -11,8 +11,10 @@ namespace Application.TestApi.Entities
         public bool ThrowFaultException { get; set; }
         public bool ThrowStackTrace { get; set; }
         public int TimeOutMilliSeconds { get; set; }
-        public bool ReturnMultipleAddresses { get; set; }
         public bool NoTrace { get; set; }
+        public bool NoMatch { get; set; }
+        public bool SingleMatch { get; set; }
+        public bool MultipleMatch { get; set; }
 
         public IPersistable Save(IPersistStuff persister)
         {
@@ -22,12 +24,9 @@ namespace Application.TestApi.Entities
         public void Sleep()
         {
             if (TimeOutMilliSeconds > 0)
+            {
                 Thread.Sleep(TimeOutMilliSeconds);
+            }
         }
-    }
-
-    public interface ISleep
-    {
-        void Sleep();
     }
 }

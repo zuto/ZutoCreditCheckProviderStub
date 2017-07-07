@@ -23,13 +23,16 @@ namespace Application.TestApi.Handlers
         private Messages GetMessageType(string readStream)
         {
             if (IsEquifaxMessage(readStream))
+            {
                 return Messages.Equifax;
-           
-            throw new ArgumentOutOfRangeException("readStream", "The passed in message does not match accepted message types: "
-                                                                + readStream);
+            }
+
+            throw new ArgumentOutOfRangeException(nameof(readStream),
+                "The passed in message does not match accepted message types: "
+                + readStream);
         }
 
-        private bool IsEquifaxMessage(string readStream)
+        private static bool IsEquifaxMessage(string readStream)
         {
             return readStream.Contains("creditQuotationSearchRequest");
         }
