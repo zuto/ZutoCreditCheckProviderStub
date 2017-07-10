@@ -1,4 +1,5 @@
-﻿using Application.TestApi.Errors;
+﻿using Application.TestApi.CreditRequestParser;
+using Application.TestApi.Errors;
 using Application.TestApi.Handlers;
 using Application.TestApi.Modules;
 using Nancy;
@@ -7,9 +8,10 @@ using Nancy.TinyIoc;
 
 namespace Application.TestApi
 {
-    public class AppBootStrapper :DefaultNancyBootstrapper
+    public class AppBootStrapper : DefaultNancyBootstrapper
     {
-        protected override void RequestStartup(TinyIoCContainer requestContainer, IPipelines pipelines, NancyContext context)
+        protected override void RequestStartup(TinyIoCContainer requestContainer, IPipelines pipelines,
+            NancyContext context)
         {
             pipelines.OnError.AddItemToEndOfPipeline((ctx, ex) => ErrorResponse.FromException(ex));
             base.RequestStartup(requestContainer, pipelines, context);
@@ -18,11 +20,11 @@ namespace Application.TestApi
         protected override void ConfigureApplicationContainer(TinyIoCContainer container)
         {
             base.ConfigureApplicationContainer(container);
+            container.Register<IEquifaxRequestParser, EquifaxRequestParser>();
             container.RegisterMultiple<IHandleDefaultMessages>(new[]
-           {
-                typeof(DefaultEquifaxMessageHandler),
+            {
+                typeof(DefaultEquifaxMessageHandler)
             });
         }
-
     }
 }

@@ -4951,9 +4951,9 @@
             <electoralRollData>
               <electoralRoll sourcedFrom="ELR">
                 <name>
-                  <middleName>J</middleName>
-                  <surname>PIKE</surname>
-                  <forename>ANDREW</forename>
+                  <middleName>{middleName}</middleName>
+                  <surname>{surName}</surname>
+                  <forename>{foreName}</forename>
                 </name>
                 <nameMatchStatus>A</nameMatchStatus>
                 <seniority>unknown</seniority>
@@ -5392,9 +5392,9 @@
           <index>1</index>
           <inputAddress sourcedFrom="ADI">
             <address>
-              <line>109 WOOD ROAD</line>
-              <line>LIVERPOOL</line>
-              <line>L26 0TB</line>
+              <line>{addressNumber} {addressStreet1}</line>
+              <line>{postTown}</line>
+              <line>{postCode}</line>
             </address>
           </inputAddress>
           <noticeOfCorrectionOrDisputePresent>false</noticeOfCorrectionOrDisputePresent>

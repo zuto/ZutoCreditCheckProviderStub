@@ -7,38 +7,57 @@ namespace Application.TestApi.Handlers
 {
     public class DefaultEquifaxMessageHandler : IHandleDefaultMessages
     {
+        private readonly IEquifaxMockResponseFactory _equifaxEquifaxMockResponseFactory;
+
+        public DefaultEquifaxMessageHandler(IEquifaxMockResponseFactory equifaxEquifaxMockResponseFactory)
+        {
+            _equifaxEquifaxMockResponseFactory = equifaxEquifaxMockResponseFactory;
+        }
+
         public string HandleResponse(string request, ConfigureModel configuration)
         {
             configuration.Sleep();
 
             if (configuration.ThrowStackTrace)
             {
-                EquifaxMocks.ThrowStackTraceException();
+                throw new Exception("You are FooBared");
             }
 
             if (configuration.ThrowFaultException)
             {
-                return EquifaxMocks.FaultExceptionResponse();
+                return _equifaxEquifaxMockResponseFactory
+                    .ResponseOfType(EquifaxResponseType.FaultException)
+                    .Build();
             }
 
             if (configuration.NoTrace)
             {
-                return EquifaxMocks.NoTraceResponse();
+                return _equifaxEquifaxMockResponseFactory
+                    .ResponseOfType(EquifaxResponseType.NoTrace)
+                    .Build();
             }
 
             if (configuration.NoMatch)
             {
-                return EquifaxMocks.NoMatchResponse();
+                return _equifaxEquifaxMockResponseFactory
+                    .ResponseOfType(EquifaxResponseType.NoMatch)
+                    .Build();
             }
 
             if (configuration.SingleMatch)
             {
-                return EquifaxMocks.SingleMatchResponse();
+                return _equifaxEquifaxMockResponseFactory
+                    .SetRequest(request)
+                    .ResponseOfType(EquifaxResponseType.SingleMatch)
+                    .OverrideDefaultApplicant()
+                    .Build();
             }
 
             if (configuration.MultipleMatch)
             {
-                return EquifaxMocks.MultipleMatchResponse();
+                return _equifaxEquifaxMockResponseFactory
+                    .ResponseOfType(EquifaxResponseType.MultipleMatch)
+                    .Build();
             }
 
             throw new Exception("No option has been configured in the stub. Please select an option and try again.");

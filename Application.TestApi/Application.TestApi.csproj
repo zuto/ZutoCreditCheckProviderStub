@@ -99,10 +99,16 @@
     <Content Include="Mocks\Equifax\SingleMatch.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppBootStrapper.cs" />
+    <Compile Include="Entities\Address.cs" />
+    <Compile Include="Entities\Applicant.cs" />
+    <Compile Include="CreditRequestParser\IEquifaxRequestParser.cs" />
+    <Compile Include="CreditRequestParser\EquifaxRequestParser.cs" />
     <Compile Include="DataAccess\DapperQueryRunner.cs" />
     <Compile Include="DataAccess\TransactionFactory.cs" />
     <Compile Include="DataAccess\IQueryRunner.cs" />
@@ -110,9 +116,12 @@
     <Compile Include="DataAccess\ISleep.cs" />
     <Compile Include="Handlers\DefaultEquifaxMessageHandler.cs" />
     <Compile Include="Errors\ErrorResponse.cs" />
+    <Compile Include="Helpers\XmlToDynamic.cs" />
     <Compile Include="Home\Module.cs" />
-    <Compile Include="Mocks\EquifaxMocks.cs" />
+    <Compile Include="Mocks\EquifaxMockResponseFactory.cs" />
     <Content Include="Mocks\Equifax\NoMatch.xml" />
+    <Compile Include="Entities\EquifaxResponseType.cs" />
+    <Compile Include="Mocks\IEquifaxMockResponseFactory.cs" />
     <Compile Include="Modules\BaseHandlerModule.cs" />
     <Compile Include="DataAccess\CommandDefinition.cs" />
     <Compile Include="Entities\ConfigureModel.cs" />
