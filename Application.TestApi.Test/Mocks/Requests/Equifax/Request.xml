@@ -1,0 +1,100 @@
+﻿<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:u="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+  <s:Header>
+    <VsDebuggerCausalityData xmlns="http://schemas.microsoft.com/vstudio/diagnostics/servicemodelsink">uIDPo0YYExKlAtBEvKMSAjkIp5IAAAAAw4vFOK0KQkuP74aguCW1gfK9MZn1E/FPhu3qMB4REyMACQAA</VsDebuggerCausalityData>
+    <o:Security s:mustUnderstand="1" xmlns:o="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+      <o:UsernameToken u:Id="uuid-addc4bf6-3040-4066-835e-cddb98f95344-2">
+        <o:Username>ZutoAccount</o:Username>
+        <o:Password>ZutoPassword</o:Password>
+      </o:UsernameToken>
+    </o:Security>
+  </s:Header>
+  <s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <creditQuotationSearchRequest xmlns="http://ewsconsumer.services.uk.equifax.com/schema/v2/creditsearch/creditquotationsearchrequest">
+      <clientRef xmlns="">b5cc4624-a2c5-41ef-876b-029c037e1888</clientRef>
+      <soleSearch xmlns="">
+        <creditSearchConfig>
+          <optIn>true</optIn>
+        </creditSearchConfig>
+        <matchCriteria>
+          <associate>required</associate>
+          <attributable>notRequired</attributable>
+          <family>notRequired</family>
+          <potentialAssociate>notRequired</potentialAssociate>
+          <subject>required</subject>
+        </matchCriteria>
+        <requestedData>
+          <cifasRequest>
+            <maxNumber>0</maxNumber>
+            <scope>suppliedAndLinked</scope>
+          </cifasRequest>
+          <inputAddressRequest>
+            <maxNumber>0</maxNumber>
+          </inputAddressRequest>
+          <multipleAddressRequest/>
+          <courtAndInsolvencyInformationRequest>
+            <maxNumber>0</maxNumber>
+            <scope>suppliedAndLinked</scope>
+          </courtAndInsolvencyInformationRequest>
+          <noticeofCorrectionOrDisputeRequest>
+            <maxNumber>0</maxNumber>
+            <scope>suppliedAndLinked</scope>
+          </noticeofCorrectionOrDisputeRequest>
+          <outputAddressRequest>
+            <maxNumber>0</maxNumber>
+          </outputAddressRequest>
+          <electoralRollRequest>
+            <maxNumber>0</maxNumber>
+            <scope>suppliedAndLinked</scope>
+          </electoralRollRequest>
+          <rollingRegisterRequest>
+            <maxNumber>0</maxNumber>
+            <scope>suppliedAndLinked</scope>
+          </rollingRegisterRequest>
+          <insightRequest>
+            <maxNumber>0</maxNumber>
+            <scope>suppliedAndLinked</scope>
+          </insightRequest>
+          <searchesRequest>
+            <maxNumber>0</maxNumber>
+            <scope>suppliedAndLinked</scope>
+          </searchesRequest>
+          <gainRequest>
+            <maxNumber>0</maxNumber>
+            <scope>suppliedAndLinked</scope>
+          </gainRequest>
+          <scoreAndCharacteristicRequests>
+            <employSameCompanyInsight>true</employSameCompanyInsight>
+            <scoreRequest>
+              <scoreLabel>RNILF04</scoreLabel>
+              <scoreLabel>FTILF04</scoreLabel>
+              <scoreLabel>RNILF01</scoreLabel>
+              <scoreLabel>INOSF04</scoreLabel>
+            </scoreRequest>
+            <attributeRequest>
+              <index>2</index>
+              <attributeProfile>1</attributeProfile>
+            </attributeRequest>
+          </scoreAndCharacteristicRequests>
+        </requestedData>
+        <primary>
+          <dob>1983-06-16</dob>
+          <name>
+            <middleName/>
+            <surname>Smith</surname>
+            <title>Mr</title>
+            <forename>John</forename>
+          </name>
+          <currentAddress>
+            <address>
+              <name>Wylcotts</name>
+              <number>1</number>
+              <postcode>WR2 6NJ</postcode>
+              <postTown>Worcester</postTown>
+              <street1>Moseley Road</street1>
+            </address>
+          </currentAddress>
+        </primary>
+      </soleSearch>
+    </creditQuotationSearchRequest>
+  </s:Body>
+</s:Envelope>

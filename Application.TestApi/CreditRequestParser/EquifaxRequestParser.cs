@@ -16,26 +16,24 @@ namespace Application.TestApi.CreditRequestParser
             try
             {
                 var xDoc = XDocument.Load(new StringReader(xmlRequest));
-
                 dynamic root = new ExpandoObject();
 
-                XmlToDynamic.Parse(root, xDoc.Elements().First());
-
-                var mainApplicant = root.creditQuotationSearchRequest1.creditQuotationSearchRequest.soleSearch.primary;
+                var primaryNode = xDoc.Descendants().FirstOrDefault(x => x.Name.LocalName == "primary");
+                XmlToDynamic.Parse(root, primaryNode);
 
                 // Applicant personal information
-                var title = mainApplicant.name.title;
-                var foreName = mainApplicant.name.forename;
-                var middleName = XmlToDynamic.HasProperty(mainApplicant.name, "middlename")
-                    ? mainApplicant.name.middlename
+                var title = root.primary.name.title;
+                var foreName = root.primary.name.forename;
+                var middleName = XmlToDynamic.HasProperty(root.primary.name, "middlename")
+                    ? root.primary.name.middlename
                     : null;
-                var surName = mainApplicant.name.surname;
-                var dateOfBirth = mainApplicant.dob;
+                var surName = root.primary.name.surname;
+                var dateOfBirth = root.primary.dob;
                 // Current address
-                var number = mainApplicant.currentAddress.address.number;
-                var postCode = mainApplicant.currentAddress.address.postcode;
-                var postTown = mainApplicant.currentAddress.address.postTown;
-                var street1 = mainApplicant.currentAddress.address.street1;
+                var number = root.primary.currentAddress.address.number;
+                var postCode = root.primary.currentAddress.address.postcode;
+                var postTown = root.primary.currentAddress.address.postTown;
+                var street1 = root.primary.currentAddress.address.street1;
 
                 applicant = new Applicant
                 {
