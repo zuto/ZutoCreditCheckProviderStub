@@ -30,7 +30,9 @@ namespace Application.TestApi.CreditRequestParser
                 var surName = root.primary.name.surname;
                 var dateOfBirth = root.primary.dob;
                 // Current address
-                var number = root.primary.currentAddress.address.number;
+                var number = XmlToDynamic.HasProperty(root.primary.currentAddress.address, "number")
+                    ? root.primary.currentAddress.address.number
+                    : null;
                 var postCode = root.primary.currentAddress.address.postcode;
                 var postTown = root.primary.currentAddress.address.postTown;
                 var street1 = root.primary.currentAddress.address.street1;
