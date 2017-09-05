@@ -7,6 +7,7 @@ namespace Application.TestApi.Mocks
         IEquifaxMockResponseFactory SetRequest(string request);
         IEquifaxMockResponseFactory ResponseOfType(EquifaxResponseType responseType);
         IEquifaxMockResponseFactory OverrideDefaultApplicant();
+        IEquifaxMockResponseFactory OverrideScores(ConfigureModel config);
         string Build();
     }
 }

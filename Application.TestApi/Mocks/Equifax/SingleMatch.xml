@@ -16,23 +16,23 @@
         <scores>
           <score sourcedFrom="SCO">
             <scoreLabel>RNILF04</scoreLabel>
-            <positive>true</positive>
-            <value>666</value>
+            <positive>{RNILF04Positive}</positive>
+            <value>{RNILF04Value}</value>
           </score>
           <score sourcedFrom="SCO">
             <scoreLabel>FTILF04</scoreLabel>
-            <positive>true</positive>
-            <value>666</value>
+            <positive>{FTILF04Positive}</positive>
+            <value>{FTILF04Value}</value>
           </score>
           <score sourcedFrom="SCO">
             <scoreLabel>RNILF01</scoreLabel>
-            <positive>true</positive>
-            <value>195</value>
+            <positive>{RNILF01Positive}</positive>
+            <value>{RNILF01Value}</value>
           </score>
           <score sourcedFrom="SCO">
             <scoreLabel>INOSF04</scoreLabel>
-            <positive>false</positive>
-            <value>7994</value>
+            <positive>{INOSF04Positive}</positive>
+            <value>{INOSF04Value}</value>
           </score>
         </scores>
         <attributes>

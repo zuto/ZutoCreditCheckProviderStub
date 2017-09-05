@@ -50,6 +50,7 @@ namespace Application.TestApi.Handlers
                     .SetRequest(request)
                     .ResponseOfType(EquifaxResponseType.SingleMatch)
                     .OverrideDefaultApplicant()
+                    .OverrideScores(configuration)
                     .Build();
             }
 

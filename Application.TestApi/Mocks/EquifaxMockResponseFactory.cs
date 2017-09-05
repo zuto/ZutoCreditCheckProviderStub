@@ -75,6 +75,21 @@ namespace Application.TestApi.Mocks
             return this;
         }
 
+        public IEquifaxMockResponseFactory OverrideScores(ConfigureModel config)
+        {
+            Template = Template
+                .Replace("{RNILF04Positive}", config.RNILF04Score < 0 ? "false" : "true")
+                .Replace("{RNILF04Value}", Math.Abs(config.RNILF04Score).ToString())
+                .Replace("{FTILF04Positive}", config.FTILF04Score < 0 ? "false" : "true")
+                .Replace("{FTILF04Value}", Math.Abs(config.FTILF04Score).ToString())
+                .Replace("{RNILF01Positive}", config.RNILF01Score < 0 ? "false" : "true")
+                .Replace("{RNILF01Value}", Math.Abs(config.RNILF01Score).ToString())
+                .Replace("{INOSF04Positive}", config.INOSF04Score < 0 ? "false" : "true")
+                .Replace("{INOSF04Value}", Math.Abs(config.INOSF04Score).ToString());
+
+            return this;
+        }
+
         public IEquifaxMockResponseFactory SetRequest(string request)
         {
             _request = request;
