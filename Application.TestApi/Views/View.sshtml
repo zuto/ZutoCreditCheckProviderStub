@@ -46,7 +46,23 @@
 		    <div class="inputSet">
                 <label for="MultipleMatch">MultipleMatch</label> 
 			    <input type="checkbox" name="MultipleMatch" value="true" @If.ConfigureModel.MultipleMatch checked @EndIf />
-            </div>                
+            </div>
+            <div class="inputSet">
+                <label for="RNILF04Score">RNILF04</label>
+				<input type="number" min="-9999" max="9999" name="RNILF04Score" value="@!Model.ConfigureModel.RNILF04Score" />
+            </div>
+            <div class="inputSet">
+                <label for="FTILF04Score">FTILF04</label>
+				<input type="number" min="-9999" max="9999" name="FTILF04Score" value="@!Model.ConfigureModel.FTILF04Score" />
+            </div>
+            <div class="inputSet">
+                <label for="RNILF01Score">RNILF01</label>
+				<input type="number" min="-9999" max="9999" name="RNILF01Score" value="@!Model.ConfigureModel.RNILF01Score" />
+            </div>
+            <div class="inputSet">
+                <label for="INOSF04Score">INOSF04</label>
+				<input type="number" min="-9999" max="9999" name="INOSF04Score" value="@!Model.ConfigureModel.INOSF04Score" />
+            </div>               
             <button type="submit">save</button>
         </form>		
     </body>

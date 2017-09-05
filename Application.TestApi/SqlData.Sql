@@ -63,6 +63,12 @@ CREATE TABLE [dbo].[Configuration](
 	[NoTrace] [bit] NOT NULL,
 	[MultipleMatch] [bit] NOT NULL,
 	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[NoMatch] [bit] NULL,
+	[SingleMatch] [bit] NULL,
+	[RNILF04Score] [int] NULL,
+	[FTILF04Score] [int] NULL,
+	[RNILF01Score] [int] NULL,
+	[INOSF04Score] [int] NULL,
  CONSTRAINT [PK_Configuration] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
@@ -85,14 +91,20 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-Create PROCEDURE [dbo].[UpsertConfig]
+CREATE PROCEDURE [dbo].[UpsertConfig]
 	@Environment nvarchar(10),
 	@Provider nvarchar(10),
 	@TimeOut int,
-	@Exception bit,
 	@StackTrace bit,
+	@Exception bit,
+	@NoMatch bit,
+	@SingleMatch bit,
+	@MultipleMatch bit,
 	@NoTrace bit,
-	@MultipleMatch bit
+	@RNILF04Score int,
+	@FTILF04Score int,
+	@RNILF01Score int,
+	@INOSF04Score int
 AS 
 SET NOCOUNT ON;
 declare @EnvId int;
@@ -111,9 +123,14 @@ END
 Declare @ConfigId int;
 Select TOP 1 @ConfigId = [ID] from [dbo].Configuration where ProviderId = @ProviderId
 if (@ConfigId IS NOT NULL) BEGIN
-	update [dbo].Configuration set TimeOutMs = @TimeOut, Exception = @Exception, StackTrace = @StackTrace, NoTrace = @NoTrace, MultipleMatch = @MultipleMatch
+	update [dbo].Configuration set TimeOutMs = @TimeOut, Exception = @Exception, StackTrace = @StackTrace, NoMatch = @NoMatch, 
+	SingleMatch = @SingleMatch, MultipleMatch = @MultipleMatch, NoTrace = @NoTrace, 
+	RNILF04Score = @RNILF04Score, FTILF04Score = @FTILF04Score, RNILF01Score = @RNILF01Score, INOSF04Score = @INOSF04Score
 END
 else BEGIN
-insert into [dbo].Configuration values (@ProviderId,@TimeOut,@Exception,@StackTrace,@NoTrace,@MultipleMatch)
+insert into [dbo].Configuration
+(ProviderId, TimeOutMs, Exception, StackTrace, NoTrace, MultipleMatch, NoMatch, SingleMatch, RNILF04Score, FTILF04Score, RNILF01Score, INOSF04Score)
+values
+(@ProviderId,@TimeOut,@Exception,@StackTrace,@NoTrace,@MultipleMatch,@NoMatch,@SingleMatch,@RNILF04Score,@FTILF04Score,@RNILF01Score,@INOSF04Score)
 END
 

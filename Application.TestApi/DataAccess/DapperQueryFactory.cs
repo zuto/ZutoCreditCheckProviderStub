@@ -18,7 +18,11 @@ namespace Application.TestApi.DataAccess
                          cfg.NoMatch as NoMatch,
                          cfg.SingleMatch as SingleMatch,
                          cfg.MultipleMatch as MultipleMatch,
-                         cfg.NoTrace
+                         cfg.NoTrace,
+                         cfg.RNILF04Score,
+                         cfg.FTILF04Score,
+                         cfg.RNILF01Score,
+                         cfg.INOSF04Score
                         FROM [dbo].[Provider] p
                         INNER JOIN [dbo].[Environment] e ON p.EnvID = e.ID
                         INNER JOIN [dbo].[Configuration] cfg ON cfg.ProviderId = p.ID
@@ -40,6 +44,10 @@ namespace Application.TestApi.DataAccess
             p.Add("NoMatch", provider.NoMatch);
             p.Add("SingleMatch", provider.SingleMatch);
             p.Add("MultipleMatch", provider.MultipleMatch);
+            p.Add("RNILF04Score", provider.RNILF04Score);
+            p.Add("FTILF04Score", provider.FTILF04Score);
+            p.Add("RNILF01Score", provider.RNILF01Score);
+            p.Add("INOSF04Score", provider.INOSF04Score);
 
             return new CommandDefinition<int>("UpsertConfig", p, dbTransaction, CommandType.StoredProcedure);
         }

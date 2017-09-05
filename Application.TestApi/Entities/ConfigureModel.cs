@@ -15,6 +15,10 @@ namespace Application.TestApi.Entities
         public bool NoMatch { get; set; }
         public bool SingleMatch { get; set; }
         public bool MultipleMatch { get; set; }
+        public int RNILF04Score { get; set; }
+        public int FTILF04Score { get; set; }
+        public int RNILF01Score { get; set; }
+        public int INOSF04Score { get; set; }
 
         public IPersistable Save(IPersistStuff persister)
         {
