@@ -26,6 +26,10 @@ namespace Application.TestApi.Handlers
             {
                 return Messages.Equifax;
             }
+            if (IsEquifaxPasswordReset(readStream))
+            {
+                return Messages.EquifaxPasswordReset;
+            }
 
             throw new ArgumentOutOfRangeException(nameof(readStream),
                 "The passed in message does not match accepted message types: "
@@ -35,6 +39,11 @@ namespace Application.TestApi.Handlers
         private static bool IsEquifaxMessage(string readStream)
         {
             return readStream.Contains("creditQuotationSearchRequest");
+        }
+
+        private static bool IsEquifaxPasswordReset(string readStream)
+        {
+            return readStream.Contains("changePasswordRequest");
         }
     }
 }

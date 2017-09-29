@@ -45,6 +45,10 @@ namespace Application.TestApi.Mocks
                     Template = ReadResponse("MultipleMatch.xml");
                     break;
 
+                case EquifaxResponseType.PasswordReset:
+                    Template = ReadResponse("PasswordReset.xml");
+                    break;
+
                 default:
                     throw new ArgumentOutOfRangeException(nameof(responseType), responseType, null);
             }

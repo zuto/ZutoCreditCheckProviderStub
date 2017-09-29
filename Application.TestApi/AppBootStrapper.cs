@@ -23,7 +23,8 @@ namespace Application.TestApi
             container.Register<IEquifaxRequestParser, EquifaxRequestParser>();
             container.RegisterMultiple<IHandleDefaultMessages>(new[]
             {
-                typeof(DefaultEquifaxMessageHandler)
+                typeof(DefaultEquifaxMessageHandler),
+                typeof(EquifaxPasswordResetMessageHandler)
             });
         }
     }

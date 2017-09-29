@@ -20,6 +20,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -95,6 +96,7 @@
     <Content Include="Mocks\Equifax\FaultException.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Mocks\Equifax\PasswordReset.xml" />
     <Content Include="Mocks\Equifax\NoTrace.xml" />
     <Content Include="Mocks\Equifax\SingleMatch.xml">
       <SubType>Designer</SubType>
@@ -114,6 +116,7 @@
     <Compile Include="DataAccess\IQueryRunner.cs" />
     <Compile Include="DataAccess\ITransactionFactory.cs" />
     <Compile Include="DataAccess\ISleep.cs" />
+    <Compile Include="Handlers\EquifaxPasswordResetMessageHandler.cs" />
     <Compile Include="Handlers\DefaultEquifaxMessageHandler.cs" />
     <Compile Include="Errors\ErrorResponse.cs" />
     <Compile Include="Helpers\XmlToDynamic.cs" />

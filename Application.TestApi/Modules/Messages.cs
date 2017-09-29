@@ -3,6 +3,7 @@
     public enum Messages
     {
         CallCredit,
-        Equifax
+        Equifax,
+        EquifaxPasswordReset
     }
 }

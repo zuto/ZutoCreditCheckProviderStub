@@ -6,6 +6,7 @@ namespace Application.TestApi.Entities
         NoTrace,
         NoMatch,
         SingleMatch,
-        MultipleMatch
+        MultipleMatch,
+        PasswordReset
     }
 }
