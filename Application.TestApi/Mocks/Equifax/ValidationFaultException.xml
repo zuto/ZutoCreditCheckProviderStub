@@ -2,7 +2,7 @@
     <soapenv:Body>
         <soapenv:Fault>
             <faultcode>soapenv:Server</faultcode>
-            <faultstring xml:lang="en">User authentication error</faultstring>
+            <faultstring xml:lang="en">Validation error</faultstring>
             <detail>
                 <ns2:creditQuotationSearchFault xmlns:ns2="http://ewsconsumer.services.uk.equifax.com/schema/v2">
                     <code>EWSC0004</code>
