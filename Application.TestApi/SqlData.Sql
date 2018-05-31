@@ -69,6 +69,7 @@ CREATE TABLE [dbo].[Configuration](
 	[FTILF04Score] [int] NULL,
 	[RNILF01Score] [int] NULL,
 	[INOSF04Score] [int] NULL,
+	ThrowValidationFaultException BIT NOT NULL
  CONSTRAINT [PK_Configuration] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
@@ -104,7 +105,8 @@ CREATE PROCEDURE [dbo].[UpsertConfig]
 	@RNILF04Score int,
 	@FTILF04Score int,
 	@RNILF01Score int,
-	@INOSF04Score int
+	@INOSF04Score int,
+	@ThrowValidationFaultException bit
 AS 
 SET NOCOUNT ON;
 declare @EnvId int;
@@ -125,12 +127,12 @@ Select TOP 1 @ConfigId = [ID] from [dbo].Configuration where ProviderId = @Provi
 if (@ConfigId IS NOT NULL) BEGIN
 	update [dbo].Configuration set TimeOutMs = @TimeOut, Exception = @Exception, StackTrace = @StackTrace, NoMatch = @NoMatch, 
 	SingleMatch = @SingleMatch, MultipleMatch = @MultipleMatch, NoTrace = @NoTrace, 
-	RNILF04Score = @RNILF04Score, FTILF04Score = @FTILF04Score, RNILF01Score = @RNILF01Score, INOSF04Score = @INOSF04Score
+	RNILF04Score = @RNILF04Score, FTILF04Score = @FTILF04Score, RNILF01Score = @RNILF01Score, INOSF04Score = @INOSF04Score, ThrowValidationFaultException = @ThrowValidationFaultException
 END
 else BEGIN
 insert into [dbo].Configuration
-(ProviderId, TimeOutMs, Exception, StackTrace, NoTrace, MultipleMatch, NoMatch, SingleMatch, RNILF04Score, FTILF04Score, RNILF01Score, INOSF04Score)
+(ProviderId, TimeOutMs, Exception, StackTrace, NoTrace, MultipleMatch, NoMatch, SingleMatch, RNILF04Score, FTILF04Score, RNILF01Score, INOSF04Score, ThrowValidationFaultException)
 values
-(@ProviderId,@TimeOut,@Exception,@StackTrace,@NoTrace,@MultipleMatch,@NoMatch,@SingleMatch,@RNILF04Score,@FTILF04Score,@RNILF01Score,@INOSF04Score)
+(@ProviderId,@TimeOut,@Exception,@StackTrace,@NoTrace,@MultipleMatch,@NoMatch,@SingleMatch,@RNILF04Score,@FTILF04Score,@RNILF01Score,@INOSF04Score, @ThrowValidationFaultException)
 END
 

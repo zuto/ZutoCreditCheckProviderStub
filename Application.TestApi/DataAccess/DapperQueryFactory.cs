@@ -49,6 +49,7 @@ namespace Application.TestApi.DataAccess
             p.Add("FTILF04Score", provider.FTILF04Score);
             p.Add("RNILF01Score", provider.RNILF01Score);
             p.Add("INOSF04Score", provider.INOSF04Score);
+            p.Add("ThrowValidationFaultException", provider.ThrowValidationFaultException);
 
             return new CommandDefinition<int>("UpsertConfig", p, dbTransaction, CommandType.StoredProcedure);
         }
