@@ -9,6 +9,7 @@ namespace Application.TestApi.Entities
         public string Provider { get; set; }
         public string ForEnvironment { get; set; }
         public bool ThrowFaultException { get; set; }
+        public bool ThrowValidationFaultException { get; set; }
         public bool ThrowStackTrace { get; set; }
         public int TimeOutMilliSeconds { get; set; }
         public bool NoTrace { get; set; }

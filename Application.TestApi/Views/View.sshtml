@@ -22,6 +22,11 @@
                 <label for="ThrowFaultException">ThrowFaultException</label> 
 			    <input type="checkbox" name="ThrowFaultException" value="true" @If.ConfigureModel.ThrowFaultException checked @EndIf />
             </div>
+			<!-- Validation Fault Exception Response -->
+            <div class="inputSet">
+                <label for="ThrowFaultException">ThrowFaultException</label> 
+			    <input type="checkbox" name="ThrowValidationFaultException" value="true" @If.ConfigureModel.ThrowValidationFaultException checked @EndIf />
+            </div>
             <!-- StackTrace Response -->
 		    <div class="inputSet">
                 <label for="ThrowStackTrace">ThrowStackTrace</label> 

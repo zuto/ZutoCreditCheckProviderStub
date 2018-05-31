@@ -29,6 +29,13 @@ namespace Application.TestApi.Handlers
                     .ResponseOfType(EquifaxResponseType.FaultException)
                     .Build();
             }
+            
+            if (configuration.ThrowValidationFaultException)
+            {
+                return _equifaxEquifaxMockResponseFactory
+                    .ResponseOfType(EquifaxResponseType.ValidationFaultException)
+                    .Build();
+            }
 
             if (configuration.NoTrace)
             {

@@ -22,7 +22,8 @@ namespace Application.TestApi.DataAccess
                          cfg.RNILF04Score,
                          cfg.FTILF04Score,
                          cfg.RNILF01Score,
-                         cfg.INOSF04Score
+                         cfg.INOSF04Score,
+                         cfg.ThrowValidationFaultException
                         FROM [dbo].[Provider] p
                         INNER JOIN [dbo].[Environment] e ON p.EnvID = e.ID
                         INNER JOIN [dbo].[Configuration] cfg ON cfg.ProviderId = p.ID

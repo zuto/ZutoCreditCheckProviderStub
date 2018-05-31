@@ -25,6 +25,9 @@ namespace Application.TestApi.Mocks
         {
             switch (responseType)
             {
+                case EquifaxResponseType.ValidationFaultException:
+                    Template = ReadResponse("ValidationFaultException.xml");
+                    break;
                 case EquifaxResponseType.FaultException:
                     Template = ReadResponse("FaultException.xml");
                     break;

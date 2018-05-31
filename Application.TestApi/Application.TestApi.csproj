@@ -93,6 +93,9 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Mocks\Equifax\ValidationFaultException.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Mocks\Equifax\FaultException.xml">
       <SubType>Designer</SubType>
     </Content>
