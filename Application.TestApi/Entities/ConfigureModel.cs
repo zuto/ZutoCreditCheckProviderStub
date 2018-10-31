@@ -20,6 +20,7 @@ namespace Application.TestApi.Entities
         public int FTILF04Score { get; set; }
         public int RNILF01Score { get; set; }
         public int INOSF04Score { get; set; }
+        public int RNOLF04Score { get; set; }
 
         public IPersistable Save(IPersistStuff persister)
         {

@@ -34,6 +34,11 @@
             <positive>{INOSF04Positive}</positive>
             <value>{INOSF04Value}</value>
           </score>
+          <score sourcedFrom="SCO">
+            <scoreLabel>RNOLF04</scoreLabel>
+            <positive>{RNOLF04Positive}</positive>
+            <value>{RNOLF04Value}</value>
+          </score>
         </scores>
         <attributes>
           <attribute>

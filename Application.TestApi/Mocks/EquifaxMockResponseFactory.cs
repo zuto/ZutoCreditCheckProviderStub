@@ -92,7 +92,9 @@ namespace Application.TestApi.Mocks
                 .Replace("{RNILF01Positive}", config.RNILF01Score < 0 ? "false" : "true")
                 .Replace("{RNILF01Value}", Math.Abs(config.RNILF01Score).ToString())
                 .Replace("{INOSF04Positive}", config.INOSF04Score < 0 ? "false" : "true")
-                .Replace("{INOSF04Value}", Math.Abs(config.INOSF04Score).ToString());
+                .Replace("{INOSF04Value}", Math.Abs(config.INOSF04Score).ToString())
+                .Replace("{RNOLF04Positive}", config.RNOLF04Score < 0 ? "false" : "true")
+                .Replace("{RNOLF04Value}", Math.Abs(config.RNOLF04Score).ToString());
 
             return this;
         }
