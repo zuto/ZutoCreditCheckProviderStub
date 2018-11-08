@@ -1,7 +1,7 @@
 ﻿<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
   <soapenv:Header />
   <soapenv:Body>
-    <ns2:creditQuotationSearchResponse xmlns:ns2="http://ewsconsumer.services.uk.equifax.com/schema/v4/creditsearch/creditquotation">
+    <ns2:creditQuotationSearchResponse xmlns:ns2="http://ewsconsumer.services.uk.equifax.com/schema/v4/creditsearch/creditquotationsearchresponse">
       <clientRef>D5BB5AF3-4BF3-445E-BE0E-154CDBA818B6</clientRef>
       <nonAddressSpecificData>
         <scores>
