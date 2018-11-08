@@ -29,7 +29,7 @@ namespace Application.TestApi.Handlers
 
             if (IsEquifaxV4Message(readStream))
             {
-                return Messages.Equifax;
+                return Messages.EquifaxV4Quotation;
             }
 
             if (IsEquifaxPasswordReset(readStream))

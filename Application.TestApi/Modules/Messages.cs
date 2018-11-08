@@ -5,6 +5,7 @@
         CallCredit,
         Equifax,
         EquifaxPasswordReset,
-        EquifaxLogonRequest
+        EquifaxLogonRequest,
+        EquifaxV4Quotation
     }
 }

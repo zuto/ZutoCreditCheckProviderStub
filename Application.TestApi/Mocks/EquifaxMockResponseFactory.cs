@@ -56,6 +56,11 @@ namespace Application.TestApi.Mocks
                     Template = ReadResponse("/V4/ValidV4TokenResponse.xml");
                     break;
 
+
+                case EquifaxResponseType.SingleMatchV4:
+                    Template = ReadResponse("/V4/SingleMatch.xml");
+                    break;
+
                 default:
                     throw new ArgumentOutOfRangeException(nameof(responseType), responseType, null);
             }

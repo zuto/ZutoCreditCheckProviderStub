@@ -9,6 +9,7 @@ namespace Application.TestApi.Entities
         SingleMatch,
         MultipleMatch,
         PasswordReset,
+        SingleMatchV4,
         ValidLogonToken
     }
 }
