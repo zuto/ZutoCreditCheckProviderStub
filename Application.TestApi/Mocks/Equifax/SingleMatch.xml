@@ -34,6 +34,11 @@
             <positive>{INOSF04Positive}</positive>
             <value>{INOSF04Value}</value>
           </score>
+          <score sourcedFrom="SCO">
+            <scoreLabel>RNOLF04</scoreLabel>
+            <positive>{RNOLF04Positive}</positive>
+            <value>{RNOLF04Value}</value>
+          </score>
         </scores>
         <attributes>
           <attribute>
@@ -2939,8 +2944,8 @@
           </attribute>
           <attribute>
             <identifier>LSC172</identifier>
-            <value>782</value>
-            <numericValue>782</numericValue>
+            <value>50</value>
+            <numericValue>50</numericValue>
           </attribute>
           <attribute>
             <identifier>LSC173</identifier>
@@ -2974,8 +2979,8 @@
           </attribute>
           <attribute>
             <identifier>LSC315</identifier>
-            <value>21</value>
-            <numericValue>21</numericValue>
+            <value>42</value>
+            <numericValue>42</numericValue>
           </attribute>
           <attribute>
             <identifier>LSC318</identifier>

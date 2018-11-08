@@ -23,6 +23,7 @@ namespace Application.TestApi.DataAccess
                          cfg.FTILF04Score,
                          cfg.RNILF01Score,
                          cfg.INOSF04Score,
+                         cfg.RNOLF04Score,
                          cfg.ThrowValidationFaultException
                         FROM [dbo].[Provider] p
                         INNER JOIN [dbo].[Environment] e ON p.EnvID = e.ID
@@ -49,6 +50,7 @@ namespace Application.TestApi.DataAccess
             p.Add("FTILF04Score", provider.FTILF04Score);
             p.Add("RNILF01Score", provider.RNILF01Score);
             p.Add("INOSF04Score", provider.INOSF04Score);
+            p.Add("RNOLF04Score", provider.RNOLF04Score);
             p.Add("ThrowValidationFaultException", provider.ThrowValidationFaultException);
 
             return new CommandDefinition<int>("UpsertConfig", p, dbTransaction, CommandType.StoredProcedure);

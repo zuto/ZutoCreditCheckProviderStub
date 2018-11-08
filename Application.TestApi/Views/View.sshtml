@@ -67,7 +67,11 @@
             <div class="inputSet">
                 <label for="INOSF04Score">INOSF04</label>
 				<input type="number" min="-9999" max="9999" name="INOSF04Score" value="@!Model.ConfigureModel.INOSF04Score" />
-            </div>               
+            </div>       
+			<div class="inputSet">
+                <label for="RNOLF04Score">RNOLF04</label>
+				<input type="number" min="-9999" max="9999" name="RNOLF04Score" value="@!Model.ConfigureModel.RNOLF04Score" />
+            </div>   
             <button type="submit">save</button>
         </form>		
     </body>
