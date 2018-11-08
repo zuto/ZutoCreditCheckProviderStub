@@ -26,39 +26,39 @@ namespace Application.TestApi.Mocks
             switch (responseType)
             {
                 case EquifaxResponseType.ValidationFaultException:
-                    Template = ReadResponse("/V2/ValidationFaultException.xml");
+                    Template = ReadResponse("V2/ValidationFaultException.xml");
                     break;
                 case EquifaxResponseType.FaultException:
-                    Template = ReadResponse("/V2/FaultException.xml");
+                    Template = ReadResponse("V2/FaultException.xml");
                     break;
 
                 case EquifaxResponseType.NoTrace:
-                    Template = ReadResponse("/V2/NoTrace.xml");
+                    Template = ReadResponse("V2/NoTrace.xml");
                     break;
 
                 case EquifaxResponseType.NoMatch:
-                    Template = ReadResponse("/V2/NoMatch.xml");
+                    Template = ReadResponse("V2/NoMatch.xml");
                     break;
 
                 case EquifaxResponseType.SingleMatch:
-                    Template = ReadResponse("/V2/SingleMatch.xml");
+                    Template = ReadResponse("V2/SingleMatch.xml");
                     break;
 
                 case EquifaxResponseType.MultipleMatch:
-                    Template = ReadResponse("/V2/MultipleMatch.xml");
+                    Template = ReadResponse("V2/MultipleMatch.xml");
                     break;
 
                 case EquifaxResponseType.PasswordReset:
-                    Template = ReadResponse("/V2/PasswordReset.xml");
+                    Template = ReadResponse("V2/PasswordReset.xml");
                     break;
 
                 case EquifaxResponseType.ValidLogonToken:
-                    Template = ReadResponse("/V4/ValidV4TokenResponse.xml");
+                    Template = ReadResponse("V4/ValidV4TokenResponse.xml");
                     break;
 
 
                 case EquifaxResponseType.SingleMatchV4:
-                    Template = ReadResponse("/V4/SingleMatch.xml");
+                    Template = ReadResponse("V4/SingleMatch.xml");
                     break;
 
                 default:
