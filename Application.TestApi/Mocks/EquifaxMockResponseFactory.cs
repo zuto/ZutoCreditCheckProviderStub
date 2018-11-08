@@ -26,34 +26,34 @@ namespace Application.TestApi.Mocks
             switch (responseType)
             {
                 case EquifaxResponseType.ValidationFaultException:
-                    Template = ReadResponse("ValidationFaultException.xml");
+                    Template = ReadResponse("/V2/ValidationFaultException.xml");
                     break;
                 case EquifaxResponseType.FaultException:
-                    Template = ReadResponse("FaultException.xml");
+                    Template = ReadResponse("/V2/FaultException.xml");
                     break;
 
                 case EquifaxResponseType.NoTrace:
-                    Template = ReadResponse("NoTrace.xml");
+                    Template = ReadResponse("/V2/NoTrace.xml");
                     break;
 
                 case EquifaxResponseType.NoMatch:
-                    Template = ReadResponse("NoMatch.xml");
+                    Template = ReadResponse("/V2/NoMatch.xml");
                     break;
 
                 case EquifaxResponseType.SingleMatch:
-                    Template = ReadResponse("SingleMatch.xml");
+                    Template = ReadResponse("/V2/SingleMatch.xml");
                     break;
 
                 case EquifaxResponseType.MultipleMatch:
-                    Template = ReadResponse("MultipleMatch.xml");
+                    Template = ReadResponse("/V2/MultipleMatch.xml");
                     break;
 
                 case EquifaxResponseType.PasswordReset:
-                    Template = ReadResponse("PasswordReset.xml");
+                    Template = ReadResponse("/V2/PasswordReset.xml");
                     break;
 
                 case EquifaxResponseType.ValidLogonToken:
-                    Template = ReadResponse("ValidV4TokenResponse.xml");
+                    Template = ReadResponse("/V4/ValidV4TokenResponse.xml");
                     break;
 
                 default:

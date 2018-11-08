@@ -22,10 +22,16 @@ namespace Application.TestApi.Handlers
 
         private Messages GetMessageType(string readStream)
         {
-            if (IsEquifaxMessage(readStream))
+            if (IsEquifaxV2Message(readStream))
             {
                 return Messages.Equifax;
             }
+
+            if (IsEquifaxV4Message(readStream))
+            {
+                return Messages.Equifax;
+            }
+
             if (IsEquifaxPasswordReset(readStream))
             {
                 return Messages.EquifaxPasswordReset;
@@ -41,9 +47,14 @@ namespace Application.TestApi.Handlers
                 + readStream);
         }
 
-        private static bool IsEquifaxMessage(string readStream)
+        private static bool IsEquifaxV2Message(string readStream)
         {
-            return readStream.Contains("creditQuotationSearchRequest");
+            return readStream.Contains("v2/creditsearch/creditquotationsearchrequest");
+        }
+
+        private static bool IsEquifaxV4Message(string readStream)
+        {
+            return readStream.Contains("v4/creditsearch/creditquotationsearchrequest");
         }
 
         private static bool IsEquifaxPasswordReset(string readStream)
