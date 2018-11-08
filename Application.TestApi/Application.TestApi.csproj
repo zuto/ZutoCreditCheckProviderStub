@@ -93,6 +93,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Mocks\Equifax\ValidV4TokenResponse.xml" />
     <Content Include="Mocks\Equifax\ValidationFaultException.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -122,6 +123,7 @@
     <Compile Include="Handlers\EquifaxPasswordResetMessageHandler.cs" />
     <Compile Include="Handlers\DefaultEquifaxMessageHandler.cs" />
     <Compile Include="Errors\ErrorResponse.cs" />
+    <Compile Include="Handlers\EquifaxLogonRequestMessageHandler.cs" />
     <Compile Include="Helpers\XmlToDynamic.cs" />
     <Compile Include="Home\Module.cs" />
     <Compile Include="Mocks\EquifaxMockResponseFactory.cs" />

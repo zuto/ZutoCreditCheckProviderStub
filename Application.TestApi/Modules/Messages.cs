@@ -4,6 +4,7 @@
     {
         CallCredit,
         Equifax,
-        EquifaxPasswordReset
+        EquifaxPasswordReset,
+        EquifaxLogonRequest
     }
 }

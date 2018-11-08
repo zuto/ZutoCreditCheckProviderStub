@@ -52,6 +52,10 @@ namespace Application.TestApi.Mocks
                     Template = ReadResponse("PasswordReset.xml");
                     break;
 
+                case EquifaxResponseType.ValidLogonToken:
+                    Template = ReadResponse("ValidV4TokenResponse.xml");
+                    break;
+
                 default:
                     throw new ArgumentOutOfRangeException(nameof(responseType), responseType, null);
             }

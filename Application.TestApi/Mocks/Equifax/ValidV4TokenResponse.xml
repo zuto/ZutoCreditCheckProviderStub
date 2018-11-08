@@ -1,0 +1,9 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <ns2:logonResponse xmlns:ns2="http://ewssecurity.services.uk.equifax.com/schema/v4/logon/logonresponse">
+      <accesstoken>valid_test_token</accesstoken>
+    </ns2:logonResponse>
+  </soapenv:Body>
+</soapenv:Envelope>
