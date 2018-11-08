@@ -60,6 +60,22 @@ namespace Application.TestApi.Mocks
                 case EquifaxResponseType.SingleMatchV4:
                     Template = ReadResponse("V4/SingleMatch.xml");
                     break;
+                case EquifaxResponseType.FaultExceptionV4:
+                    Template = ReadResponse("V4/FaultException.xml");
+                    break;
+                case EquifaxResponseType.ValidationFaultExceptionV4:
+                    Template = ReadResponse("V4/ValidationFaultException.xml");
+                    break;
+                case EquifaxResponseType.NoTraceV4:
+                    Template = ReadResponse("V4/NoTrace.xml");
+                    break;
+                case EquifaxResponseType.NoMatchV4:
+                    Template = ReadResponse("V4/NoMatch.xml");
+                    break;
+                case EquifaxResponseType.MultipleMatchV4:
+                    Template = ReadResponse("V4/MultipleMatch.xml");
+                    break;
+
 
                 default:
                     throw new ArgumentOutOfRangeException(nameof(responseType), responseType, null);

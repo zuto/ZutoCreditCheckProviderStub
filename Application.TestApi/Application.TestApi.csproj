@@ -93,9 +93,18 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Mocks\Equifax\V4\FaultException.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Mocks\Equifax\V4\MultipleMatch.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Mocks\Equifax\V4\NoMatch.xml" />
+    <Content Include="Mocks\Equifax\V4\NoTrace.xml" />
     <Content Include="Mocks\Equifax\V4\SingleMatch.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Mocks\Equifax\V4\ValidationFaultException.xml" />
     <Content Include="Mocks\Equifax\V4\ValidV4TokenResponse.xml" />
     <Content Include="Mocks\Equifax\V2\ValidationFaultException.xml">
       <SubType>Designer</SubType>

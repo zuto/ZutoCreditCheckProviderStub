@@ -23,36 +23,37 @@ namespace Application.TestApi.Handlers
                 throw new Exception("You are FooBared");
             }
 
-            /*
+            
             if (configuration.ThrowFaultException)
             {
                 return _equifaxEquifaxMockResponseFactory
-                    .ResponseOfType(EquifaxResponseType.FaultException)
+                    .ResponseOfType(EquifaxResponseType.FaultExceptionV4)
                     .Build();
-            }
+            } 
 
             if (configuration.ThrowValidationFaultException)
             {
                 return _equifaxEquifaxMockResponseFactory
-                    .ResponseOfType(EquifaxResponseType.ValidationFaultException)
+                    .ResponseOfType(EquifaxResponseType.ValidationFaultExceptionV4)
                     .Build();
             }
 
+            
             if (configuration.NoTrace)
             {
                 return _equifaxEquifaxMockResponseFactory
-                    .ResponseOfType(EquifaxResponseType.NoTrace)
+                    .ResponseOfType(EquifaxResponseType.NoTraceV4)
                     .Build();
             }
 
+            
             if (configuration.NoMatch)
             {
                 return _equifaxEquifaxMockResponseFactory
-                    .ResponseOfType(EquifaxResponseType.NoMatch)
+                    .ResponseOfType(EquifaxResponseType.NoMatchV4)
                     .Build();
             }
-            */
-
+            
             if (configuration.SingleMatch)
             {
                 return _equifaxEquifaxMockResponseFactory
@@ -62,13 +63,13 @@ namespace Application.TestApi.Handlers
                     .OverrideScores(configuration)
                     .Build();
             }
-            /*
+            
             if (configuration.MultipleMatch)
             {
                 return _equifaxEquifaxMockResponseFactory
-                    .ResponseOfType(EquifaxResponseType.MultipleMatch)
+                    .ResponseOfType(EquifaxResponseType.MultipleMatchV4)
                     .Build();
-            }*/
+            }
 
             throw new Exception("No option has been configured in the stub. Please select an option and try again.");
         }

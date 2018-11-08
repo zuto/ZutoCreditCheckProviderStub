@@ -1,0 +1,25 @@
+﻿<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <soapenv:Header>
+    <sec:PasswordExpiryInformation xmlns:sec="http://ewsconsumer.services.uk.equifax.com/schema/v4/security">
+      <PasswordSecurity xmlns="http://services.uk.equifax.com/schema/v1/security">
+        <mustChangePassword>false</mustChangePassword>
+        <passwordValidityPeriod>30</passwordValidityPeriod>
+        <latestDateOfPasswordChange>2017-06-16T16:12:21.000+01:00</latestDateOfPasswordChange>
+        <lastPasswordChange>2017-05-17T16:12:21.000+01:00</lastPasswordChange>
+      </PasswordSecurity>
+    </sec:PasswordExpiryInformation>
+  </soapenv:Header>
+  <soapenv:Body>
+    <ns2:creditQuotationSearchResponse xmlns:ns2="http://ewsconsumer.services.uk.equifax.com/schema/v4/creditsearch/creditquotationsearchresponse">
+      <clientRef>BC65E8F1-44D1-452B-B1CE-CD4C32BF64A6</clientRef>
+      <soleSearch>
+        <primary>
+          <suppliedAddressData>
+            <addressMatchStatus>noMatch</addressMatchStatus>
+            <index>1</index>
+          </suppliedAddressData>
+        </primary>
+      </soleSearch>
+    </ns2:creditQuotationSearchResponse>
+  </soapenv:Body>
+</soapenv:Envelope>

@@ -1,0 +1,107 @@
+﻿<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <soapenv:Header />
+  <soapenv:Body>
+    <ns2:creditQuotationSearchResponse xmlns:ns2="http://ewsconsumer.services.uk.equifax.com/schema/v4/creditsearch/creditquotationsearchresponse">
+      <clientRef>6B8E5EAC-8A2C-4463-BF2D-4FCB80B9FFF9</clientRef>
+      <nonAddressSpecificData>
+      </nonAddressSpecificData>
+      <soleSearch>
+        <primary>
+          <suppliedAddressData>
+            <addressMatchStatus>singleMatch</addressMatchStatus>
+            <index>1</index>
+            <inputAddress sourcedFrom="ADI">
+              <address>
+                <line>232 NEASDEN LANE</line>
+                <line>LONDON</line>
+                <line>NW10 0AA</line>
+              </address>
+            </inputAddress>
+            <noticeOfCorrectionOrDisputePresent>false</noticeOfCorrectionOrDisputePresent>
+            <matchedAddress sourcedFrom="ADO">
+              <address>
+                <number>00232</number>
+                <postcode>NW100AA</postcode>
+                <postTown>LONDON</postTown>
+                <street1>NEASDEN LANE</street1>
+                <addressID>98000361039</addressID>
+              </address>
+            </matchedAddress>
+            <addressSpecificData>
+              <electoralRollData>
+                <electoralRoll sourcedFrom="ELR">
+                  <name>
+                    <surname>SMITH</surname>
+                    <forename>DAVE</forename>
+                  </name>
+                  <nameMatchStatus>Z</nameMatchStatus>
+                  <seniority>unknown</seniority>
+                  <annualRegisterPeriod>
+                    <start>2015</start>
+                    <end>2017</end>
+                  </annualRegisterPeriod>
+                </electoralRoll>
+              </electoralRollData>
+              <InsightData>
+                <creditCard sourcedFrom="INR">
+                  <dob>1970-01-01</dob>
+                  <name>
+                    <middleName>A</middleName>
+                    <surname>SMITH</surname>
+                    <title>MR</title>
+                    <forename>DAVE</forename>
+                  </name>
+                  <nameMatchStatus>Z</nameMatchStatus>
+                  <paymentHistory>
+                    <ageInMonths>0</ageInMonths>
+                    <paymentStatus>ZERO</paymentStatus>
+                  </paymentHistory>
+                  <paymentHistory>
+                    <ageInMonths>1</ageInMonths>
+                    <paymentStatus>ZERO</paymentStatus>
+                  </paymentHistory>
+                  <paymentHistory>
+                    <ageInMonths>2</ageInMonths>
+                    <paymentStatus>ZERO</paymentStatus>
+                  </paymentHistory>
+                  <companyClass>BK</companyClass>
+                  <creditLimit suppressed="false">
+                    <limit>
+                      <amount>4100</amount>
+                      <currency>GBP</currency>
+                    </limit>
+                  </creditLimit>
+                  <currentBalance suppressed="false">
+                    <balanceAmount>
+                      <amount>0</amount>
+                      <currency>GBP</currency>
+                    </balanceAmount>
+                  </currentBalance>
+                  <defaultBalance suppressed="false">
+                    <balanceAmount>
+                      <amount>0</amount>
+                      <currency>GBP</currency>
+                    </balanceAmount>
+                  </defaultBalance>
+                  <insightQuality>
+                    <qualityIndicator1>false</qualityIndicator1>
+                    <qualityIndicator2>false</qualityIndicator2>
+                  </insightQuality>
+                  <lastUpdateDate>2017-07-18</lastUpdateDate>
+                  <paymentFrequency>monthly</paymentFrequency>
+                  <startBalance suppressed="false">
+                    <balanceAmount>
+                      <amount>0</amount>
+                      <currency>GBP</currency>
+                    </balanceAmount>
+                  </startBalance>
+                  <startDate>2017-01-01</startDate>
+                </creditCard>
+              </InsightData>
+              </addressSpecificData>
+          </suppliedAddressData>
+        </primary>
+      </soleSearch>
+    </ns2:creditQuotationSearchResponse>
+  </soapenv:Body>
+</soapenv:Envelope>
