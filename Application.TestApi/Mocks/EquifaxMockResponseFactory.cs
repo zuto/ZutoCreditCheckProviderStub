@@ -75,8 +75,9 @@ namespace Application.TestApi.Mocks
                 case EquifaxResponseType.MultipleMatchV4:
                     Template = ReadResponse("V4/MultipleMatch.xml");
                     break;
-
-
+                case EquifaxResponseType.ValidChangeSecretResponse:
+                    Template = ReadResponse("V4/ValidChangeSecretResponse.xml");
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(responseType), responseType, null);
             }

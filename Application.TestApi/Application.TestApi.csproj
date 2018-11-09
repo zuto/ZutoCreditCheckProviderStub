@@ -105,6 +105,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Mocks\Equifax\V4\ValidationFaultException.xml" />
+    <Content Include="Mocks\Equifax\V4\ValidChangeSecretResponse.xml" />
     <Content Include="Mocks\Equifax\V4\ValidV4TokenResponse.xml" />
     <Content Include="Mocks\Equifax\V2\ValidationFaultException.xml">
       <SubType>Designer</SubType>
@@ -132,6 +133,7 @@
     <Compile Include="DataAccess\IQueryRunner.cs" />
     <Compile Include="DataAccess\ITransactionFactory.cs" />
     <Compile Include="DataAccess\ISleep.cs" />
+    <Compile Include="Handlers\EquifaxChangeSecretMessageHandler.cs" />
     <Compile Include="Handlers\EquifaxPasswordResetMessageHandler.cs" />
     <Compile Include="Handlers\DefaultEquifaxMessageHandler.cs" />
     <Compile Include="Errors\ErrorResponse.cs" />

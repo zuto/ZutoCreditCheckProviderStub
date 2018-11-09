@@ -42,6 +42,11 @@ namespace Application.TestApi.Handlers
                 return Messages.EquifaxLogonRequest;
             }
 
+            if (IsEquifaxChangeSecretRequest(readStream))
+            {
+                return Messages.EquifaxChangeSecretRequest;
+            }
+
             throw new ArgumentOutOfRangeException(nameof(readStream),
                 "The passed in message does not match accepted message types: "
                 + readStream);
@@ -65,6 +70,11 @@ namespace Application.TestApi.Handlers
         private static bool IsEquifaxLogonRequest(string readStream)
         {
             return readStream.Contains("logonrequest");
+        }
+
+        private bool IsEquifaxChangeSecretRequest(string readStream)
+        {
+            return readStream.Contains("v4/changeclientsecret/changeclientsecretrequest");
         }
     }
 }

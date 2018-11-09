@@ -6,6 +6,7 @@
         Equifax,
         EquifaxPasswordReset,
         EquifaxLogonRequest,
-        EquifaxV4Quotation
+        EquifaxV4Quotation,
+        EquifaxChangeSecretRequest
     }
 }

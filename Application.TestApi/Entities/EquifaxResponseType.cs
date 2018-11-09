@@ -15,6 +15,7 @@ namespace Application.TestApi.Entities
         ValidationFaultExceptionV4,
         NoTraceV4,
         NoMatchV4,
-        MultipleMatchV4
+        MultipleMatchV4,
+        ValidChangeSecretResponse
     }
 }
