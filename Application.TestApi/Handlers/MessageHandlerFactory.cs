@@ -60,7 +60,7 @@ namespace Application.TestApi.Handlers
 
         private static bool IsCallCreditRequest(string readStream)
         {
-            return readStream.Contains("CT_SearchDefinition");
+            return readStream.Contains("Search07a");
         }
 
         private static bool IsEquifaxV2Message(string readStream)
