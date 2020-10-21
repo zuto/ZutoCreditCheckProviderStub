@@ -22,6 +22,12 @@ namespace Application.TestApi.Handlers
 
         private Messages GetMessageType(string readStream)
         {
+
+            if (IsCallCreditRequest(readStream))
+            {
+                return Messages.CallCredit;
+            }
+
             if (IsEquifaxV2Message(readStream))
             {
                 return Messages.Equifax;
@@ -50,6 +56,11 @@ namespace Application.TestApi.Handlers
             throw new ArgumentOutOfRangeException(nameof(readStream),
                 "The passed in message does not match accepted message types: "
                 + readStream);
+        }
+
+        private static bool IsCallCreditRequest(string readStream)
+        {
+            return readStream.Contains("CT_SearchDefinition");
         }
 
         private static bool IsEquifaxV2Message(string readStream)

@@ -1,6 +1,7 @@
 ﻿using Application.TestApi.CreditRequestParser;
 using Application.TestApi.Errors;
 using Application.TestApi.Handlers;
+using Application.TestApi.Handlers.CallCredit;
 using Application.TestApi.Modules;
 using Nancy;
 using Nancy.Bootstrapper;
@@ -24,6 +25,7 @@ namespace Application.TestApi
             container.RegisterMultiple<IHandleDefaultMessages>(new[]
             {
                 typeof(DefaultEquifaxMessageHandler),
+                typeof(DefaultCallCreditMessageHandler),
                 typeof(EquifaxPasswordResetMessageHandler)
             });
         }
