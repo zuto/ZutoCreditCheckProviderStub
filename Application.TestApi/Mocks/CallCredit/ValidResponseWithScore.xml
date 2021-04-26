@@ -112,8 +112,8 @@
                                 <worsepaystatus12months>D</worsepaystatus12months>
                                 <worsepaystatus36months>D</worsepaystatus36months>
                                 <totaldelinqs12months>1</totaldelinqs12months>
-                                <totaldefaults12months>1</totaldefaults12months>
-                                <totaldefaults36months>1</totaldefaults36months>
+                                <totaldefaults12months>3</totaldefaults12months>
+                                <totaldefaults36months>3</totaldefaults36months>
                             </share>
                             <ich>
                                 <impairedcredit>0</impairedcredit>
@@ -571,6 +571,14 @@
                                     <defdate>2020-03-24</defdate>
                                     <origdefbal>1183</origdefbal>
                                 </default>
+                              <default>
+                                <defdate>2020-02-24</defdate>
+                                <origdefbal>1234</origdefbal>
+                              </default>
+                              <default>
+                                <defdate>2020-01-24</defdate>
+                                <origdefbal>2121</origdefbal>
+                              </default>
                                 <delinquent>
                                     <delinqdate>2020-02-29</delinqdate>
                                     <delinqbal>1140</delinqbal>
