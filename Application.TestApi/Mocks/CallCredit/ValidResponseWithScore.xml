@@ -555,6 +555,10 @@
                                     <repayfreqcode>P</repayfreqcode>
                                     <lumppayment>0</lumppayment>
                                 </accdetails>
+                              <default>
+                                <defdate>2020-02-24</defdate>
+                                <origdefbal>1234</origdefbal>
+                              </default>
                             </acc>
                             <acc>
                                 <supplierdetails>
@@ -571,15 +575,7 @@
                                     <defdate>2020-03-24</defdate>
                                     <origdefbal>1183</origdefbal>
                                 </default>
-                              <default>
-                                <defdate>2020-02-24</defdate>
-                                <origdefbal>1234</origdefbal>
-                              </default>
-                              <default>
-                                <defdate>2020-01-24</defdate>
-                                <origdefbal>2121</origdefbal>
-                              </default>
-                                <delinquent>
+                              <delinquent>
                                     <delinqdate>2020-02-29</delinqdate>
                                     <delinqbal>1140</delinqbal>
                                 </delinquent>
@@ -700,6 +696,10 @@
                                     <repayfreqcode>M</repayfreqcode>
                                     <lumppayment>0</lumppayment>
                                 </accdetails>
+                              <default>
+                                <defdate>2020-01-24</defdate>
+                                <origdefbal>2121</origdefbal>
+                              </default>
                             </acc>
                             <acc>
                                 <supplierdetails>
