@@ -2940,8 +2940,7 @@
           </attribute>
           <attribute>
             <identifier>LSC173</identifier>
-            <value>1</value>
-            <numericValue>1</numericValue>
+            <value>C</value>        
           </attribute>
           <attribute>
             <identifier>LSC174</identifier>
